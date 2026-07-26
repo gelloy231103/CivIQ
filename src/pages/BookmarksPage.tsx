@@ -21,7 +21,7 @@ export function BookmarksPage() {
               <p className="mt-1 text-sm text-muted-foreground">Saved questions will appear here.</p>
             </div>
             <Button asChild variant="outline">
-              <Link to="/review">Start review</Link>
+              <Link to="/library">Open Library</Link>
             </Button>
           </CardContent>
         </Card>

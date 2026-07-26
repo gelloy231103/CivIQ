@@ -3,6 +3,7 @@ import { AppShell } from "@/components/layout/AppShell";
 import { AuthProvider, useAuth } from "@/lib/auth";
 import { useRouter } from "@/lib/router";
 import { StudyProvider } from "@/lib/study-state";
+import { AnswerReviewPage } from "@/pages/AnswerReviewPage";
 import { BookmarksPage } from "@/pages/BookmarksPage";
 import { DashboardPage } from "@/pages/DashboardPage";
 import { FriendsPage } from "@/pages/FriendsPage";
@@ -59,6 +60,10 @@ function renderPage(path: string) {
 
   if (path === "/quiz" || path.startsWith("/quiz/")) {
     return <QuizPage />;
+  }
+
+  if (path === "/answers" || path.startsWith("/answers/")) {
+    return <AnswerReviewPage />;
   }
 
   switch (path) {

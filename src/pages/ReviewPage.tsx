@@ -1,6 +1,7 @@
 import { Library } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { ReviewCard } from "@/components/reviewer/ReviewCard";
+import { YearRequiredCard } from "@/components/reviewer/YearRequiredCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { verifiedProfessionalQuestions } from "@/data/professional";
@@ -29,6 +30,15 @@ export function ReviewPage() {
   useEffect(() => {
     setIndex(0);
   }, [currentSelectionKey]);
+
+  if (!selection.year) {
+    return (
+      <YearRequiredCard
+        title="Choose a reviewer year"
+        description="Review opens by year so the question set is clear before you start."
+      />
+    );
+  }
 
   if (!question) {
     return (

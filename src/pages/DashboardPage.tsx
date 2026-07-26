@@ -27,15 +27,15 @@ export function DashboardPage() {
           </CardHeader>
           <CardContent className="grid gap-3 sm:grid-cols-2">
             <Button asChild size="lg">
-              <Link to="/review">
+              <Link to="/library">
                 <Brain aria-hidden="true" />
-                Continue review
+                Open library
               </Link>
             </Button>
             <Button asChild size="lg" variant="gold">
-              <Link to="/quiz">
+              <Link to="/library">
                 <Target aria-hidden="true" />
-                Start quiz
+                Start session
               </Link>
             </Button>
           </CardContent>
