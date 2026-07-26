@@ -53,6 +53,12 @@ Drop source reviewers into `reviewers/new`, then inventory and extract supported
 python scripts/import_reviewer_sources.py reviewers/new
 ```
 
+To extract the older archive reviewer folders while skipping `reviewers/new`, run:
+
+```bash
+python scripts/import_reviewer_sources.py reviewers --exclude new --out tmp/reviewer-import-archive
+```
+
 The script writes extracted text and `inventory.json` into `tmp/reviewer-import`. Generated app question data should still be reviewed before being marked verified.
 
 Admins can also open `/admin/imports` after signing in with an allowlisted account. Uploaded reviewer sources are staged in the private `reviewer-sources` bucket and are not published to the student question bank until extracted and verified.
