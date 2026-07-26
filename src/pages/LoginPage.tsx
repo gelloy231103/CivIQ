@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
-import { Brain, Chrome, LockKeyhole } from "lucide-react";
+import { Chrome, LockKeyhole } from "lucide-react";
+import { CivIQLogo } from "@/components/brand/CivIQLogo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -53,9 +54,7 @@ export function LoginPage() {
       <Card className="w-full max-w-md">
         <CardHeader>
           <div className="mb-3 flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary text-primary-foreground">
-              <Brain className="h-5 w-5" aria-hidden="true" />
-            </div>
+            <CivIQLogo className="h-12 w-12 shrink-0" aria-hidden="true" />
             <div>
               <CardTitle className="text-2xl">CivIQ</CardTitle>
               <CardDescription>Professional 2026-2027</CardDescription>
