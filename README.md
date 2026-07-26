@@ -59,7 +59,15 @@ To extract the older archive reviewer folders while skipping `reviewers/new`, ru
 python scripts/import_reviewer_sources.py reviewers --exclude new --out tmp/reviewer-import-archive
 ```
 
-The script writes extracted text and `inventory.json` into `tmp/reviewer-import`. Generated app question data should still be reviewed before being marked verified.
+The extraction script writes extracted text and `inventory.json` into the selected output folder. Generated app question data should still be reviewed before being marked verified.
+
+To regenerate the structured archive sets currently used by the public Library:
+
+```bash
+python scripts/extract_archive_reviewers.py
+```
+
+That parser only publishes items whose choices can be matched to an archive answer key. It currently generates the 2017, 2018, and 2022 archive year files under `src/data/professional`.
 
 Admins can also open `/admin/imports` after signing in with an allowlisted account. Uploaded reviewer sources are staged in the private `reviewer-sources` bucket and are not published to the student question bank until extracted and verified.
 

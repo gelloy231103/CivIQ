@@ -9,7 +9,9 @@ export type QuestionTopic =
   | "Analogy"
   | "Logic"
   | "Numerical Reasoning"
+  | "Paragraph Organization"
   | "General Information"
+  | "Clerical Operations"
   | "Abstract Reasoning"
   | "Filipino"
   | "Philippine Constitution";

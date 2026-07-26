@@ -1,0 +1,30 @@
+{
+  "source": "Civil Service Archive 2017 - Complete Reviewer",
+  "imported": 185,
+  "skipped": 5,
+  "byTopic": {
+    "Analogy": 24,
+    "Clerical Operations": 25,
+    "General Information": 38,
+    "Grammar": 20,
+    "Numerical Reasoning": 29,
+    "Paragraph Organization": 10,
+    "Reading Comprehension": 9,
+    "Vocabulary": 30
+  },
+  "bySection": {
+    "Analogy and Logic": 24,
+    "Clerical Operations": 25,
+    "General Information": 38,
+    "Grammar and Correct Usage": 20,
+    "Idiomatic Expressions": 10,
+    "Numerical Reasoning": 29,
+    "Paragraph Organization": 10,
+    "Reading Comprehension": 9,
+    "Vocabulary": 20
+  },
+  "skipReasons": {
+    "missing answer key": 1,
+    "missing choices": 4
+  }
+}

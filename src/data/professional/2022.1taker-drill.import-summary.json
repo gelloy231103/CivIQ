@@ -1,0 +1,30 @@
+{
+  "source": "Civil Service Archive 2022 - 1Taker Drill",
+  "imported": 181,
+  "skipped": 3,
+  "byTopic": {
+    "Analogy": 24,
+    "Clerical Operations": 25,
+    "General Information": 39,
+    "Grammar": 15,
+    "Numerical Reasoning": 29,
+    "Paragraph Organization": 10,
+    "Reading Comprehension": 9,
+    "Vocabulary": 30
+  },
+  "bySection": {
+    "Analogy and Logic": 24,
+    "Clerical Operations": 25,
+    "General Information": 39,
+    "Grammar and Correct Usage": 15,
+    "Idiomatic Expressions": 10,
+    "Numerical Reasoning": 29,
+    "Paragraph Organization": 10,
+    "Reading Comprehension": 9,
+    "Vocabulary": 20
+  },
+  "skipReasons": {
+    "missing answer key": 1,
+    "missing choices": 2
+  }
+}
