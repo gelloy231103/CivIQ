@@ -10,7 +10,9 @@ export type QuestionTopic =
   | "Logic"
   | "Numerical Reasoning"
   | "General Information"
-  | "Abstract Reasoning";
+  | "Abstract Reasoning"
+  | "Filipino"
+  | "Philippine Constitution";
 
 export type Choice = {
   id: string;

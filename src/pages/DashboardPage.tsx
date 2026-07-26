@@ -24,7 +24,7 @@ export function DashboardPage() {
         <Card>
           <CardHeader>
             <Badge className="w-fit" variant="gold">
-              Latest source: 2026-2027
+              Current set: 2026-2027
             </Badge>
             <CardTitle className="text-3xl leading-tight">Ready, {profile?.displayName ?? "reviewer"}?</CardTitle>
             <CardDescription>Your Professional reviewer progress follows you across devices.</CardDescription>

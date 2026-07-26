@@ -89,7 +89,9 @@ export function QuizPage() {
     <div className="space-y-5">
       <div>
         <h1 className="text-3xl font-extrabold">Quiz</h1>
-        <p className="mt-1 text-sm font-semibold text-muted-foreground">Untimed Professional practice</p>
+        <p className="mt-1 text-sm font-semibold text-muted-foreground">
+          Untimed Professional practice - {totalQuestions} questions
+        </p>
       </div>
       <Progress value={(answeredCount / totalQuestions) * 100} />
       <Card>

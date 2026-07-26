@@ -1,0 +1,34 @@
+{
+  "source": "CSE 2026-2027 Professional Reviewer",
+  "sourceFile": "Civil Service Exam Reviewer for 2026.pdf",
+  "imported": 460,
+  "skipped": 260,
+  "byTopic": {
+    "Analogy": 34,
+    "Filipino": 169,
+    "Grammar": 81,
+    "Logic": 45,
+    "Numerical Reasoning": 64,
+    "Reading Comprehension": 42,
+    "Vocabulary": 25
+  },
+  "bySection": {
+    "Antonyms": 2,
+    "Correct Usage": 35,
+    "Data Sufficiency": 19,
+    "Double-Word Analogy": 3,
+    "Identifying Errors": 46,
+    "Inductive Reasoning": 45,
+    "Kasalungat": 24,
+    "Kasingkahulugan": 46,
+    "Pag-unawa sa Binasa": 8,
+    "Pagkilala sa Mali": 16,
+    "Pagtatalata": 33,
+    "Paragraph Development": 1,
+    "Reading Comprehension": 41,
+    "Single-Word Analogy": 31,
+    "Synonyms": 23,
+    "Wastong Gamit": 42,
+    "Word Problems and Operations": 45
+  }
+}
