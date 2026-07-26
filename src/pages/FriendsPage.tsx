@@ -27,9 +27,13 @@ export function FriendsPage() {
     const client = supabase;
     const timeout = window.setTimeout(async () => {
       const normalized = query.trim();
-      let request = client.from("profiles").select("*").neq("id", profile.id).limit(20);
+      let request = client
+        .from("profiles")
+        .select("id, username, display_name, avatar_url, visibility, created_at")
+        .neq("id", profile.id)
+        .limit(20);
       if (normalized) {
-        request = request.or(`username.ilike.%${normalized}%,display_name.ilike.%${normalized}%`);
+        request = request.ilike("username", `%${normalized}%`);
       }
       const { data } = await request;
       if (!cancelled) {
@@ -58,7 +62,7 @@ export function FriendsPage() {
         <h1 className="text-3xl font-extrabold">Friends</h1>
         <p className="mt-1 text-sm font-semibold text-muted-foreground">Follow friends to build your leaderboard.</p>
       </div>
-      <Input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search by name or username" />
+      <Input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search by username" />
       <div className="grid gap-3">
         {!isPreview && results.length === 0 ? (
           <Card>

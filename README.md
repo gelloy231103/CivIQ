@@ -7,6 +7,7 @@ Login-required Civil Service Exam Professional reviewer for laptop and mobile we
 - React + TypeScript + Vite
 - Tailwind CSS with shadcn-compatible components
 - Supabase-ready auth, profile, follow, progress, and leaderboard boundaries
+- AES-256 database-layer protection for private profile details
 - Protected AI explanation function stub
 - Generated Civil Service reviewer question set from imported reviewer content
 - Visual Abstract Reasoning question assets with neutral answer labels
@@ -35,3 +36,7 @@ For Vercel deployment, add this environment variable in the Vercel project setti
 ```bash
 GEMINI_API_KEY=
 ```
+
+## Privacy
+
+CivIQ keeps email/password handling inside Supabase Auth. The app database uses public usernames for social search and leaderboards. Private profile details, currently display name and avatar URL, are encrypted in Supabase with `pgcrypto` using `cipher-algo=aes256`; the key is generated and stored in Supabase Vault by the privacy migration.

@@ -147,8 +147,12 @@ export function useAuth() {
 async function ensureProfile(user: User): Promise<Profile> {
   if (!supabase) return profileFromUser(user);
 
-  const { data: existing } = await supabase.from("profiles").select("*").eq("id", user.id).maybeSingle();
-  if (existing) return profileFromRow(existing);
+  const { data: existing } = await supabase
+    .from("profiles")
+    .select("id, username, display_name, avatar_url, visibility, created_at")
+    .eq("id", user.id)
+    .maybeSingle();
+  if (existing) return (await readPrivateProfile()) ?? profileFromRow(existing);
 
   const fallback = profileFromUser(user);
   const { data: inserted, error } = await insertProfile(fallback);
@@ -159,11 +163,11 @@ async function ensureProfile(user: User): Promise<Profile> {
       username: `${fallback.username.slice(0, 17)}_${user.id.slice(0, 6)}`
     };
     const { data: uniqueInserted } = await insertProfile(uniqueFallback);
-    if (uniqueInserted) return profileFromRow(uniqueInserted);
+    if (uniqueInserted) return (await readPrivateProfile()) ?? profileFromRow(uniqueInserted);
   }
 
   if (!inserted) return fallback;
-  return profileFromRow(inserted);
+  return (await readPrivateProfile()) ?? profileFromRow(inserted);
 }
 
 async function insertProfile(profile: Profile) {
@@ -183,7 +187,7 @@ async function insertProfile(profile: Profile) {
 
 function profileFromUser(user: User): Profile {
   const metadata = user.user_metadata ?? {};
-  const fallbackName = user.email?.split("@")[0] || "CivIQ User";
+  const fallbackName = `user_${user.id.slice(0, 8)}`;
   const displayName = String(metadata.display_name || metadata.full_name || metadata.name || fallbackName);
   const avatarUrl = metadata.avatar_url || metadata.picture;
   const username = normalizeUsername(String(metadata.username || metadata.preferred_username || fallbackName));
@@ -199,14 +203,22 @@ function profileFromUser(user: User): Profile {
 }
 
 function profileFromRow(row: Record<string, unknown>): Profile {
+  const username = String(row.username ?? "");
   return {
     id: String(row.id),
-    username: String(row.username),
-    displayName: String(row.display_name),
+    username,
+    displayName: String(row.display_name ?? (username || "CivIQ User")),
     avatarUrl: row.avatar_url ? String(row.avatar_url) : undefined,
     visibility: row.visibility === "global" ? "global" : "friends",
     joinedAt: String(row.created_at)
   };
+}
+
+async function readPrivateProfile() {
+  if (!supabase) return null;
+  const { data, error } = await supabase.rpc("my_private_profile").maybeSingle();
+  if (error || !data) return null;
+  return profileFromRow(data as Record<string, unknown>);
 }
 
 function normalizeUsername(value: string) {

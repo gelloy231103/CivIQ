@@ -47,7 +47,11 @@ export function LeaderboardPage() {
 
     let cancelled = false;
     Promise.all([
-      supabase.from("profiles").select("*").neq("id", profile.id).limit(100),
+      supabase
+        .from("profiles")
+        .select("id, username, display_name, avatar_url, visibility, created_at")
+        .neq("id", profile.id)
+        .limit(100),
       supabase.from("leaderboard_stats").select("*")
     ]).then(([profilesResult, statsResult]) => {
       if (cancelled) return;
