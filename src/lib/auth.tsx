@@ -181,7 +181,7 @@ async function insertProfile(profile: Profile) {
       avatar_url: profile.avatarUrl ?? null,
       visibility: profile.visibility
     })
-    .select("*")
+    .select("id, username, display_name, avatar_url, visibility, created_at")
     .single();
 }
 
