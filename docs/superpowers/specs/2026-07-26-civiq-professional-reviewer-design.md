@@ -9,9 +9,9 @@ CivIQ is a mobile-first social web reviewer for the Philippine Civil Service Exa
 
 The revised first version requires login before the reviewer can be used. Users can open the site on a laptop or mobile browser, sign in, answer questions, sync progress across devices, follow friends, compare leaderboard results, and request protected live AI explanations when free-tier quota is available.
 
-The first content source is the local `reviewers/` folder. The latest reviewer content currently available in that source is from 2022, not 2026. The document date is the project/spec date only and must not be treated as the latest exam-source year.
+The first content source is the local `reviewers/` folder. The newest source material is now inside `reviewers/new`, with reviewer packs labeled for 2026-2027. The document date is the project/spec date only and must not be treated as the latest exam-source year.
 
-Current local source inventory includes reviewer packs such as `Latest CSE Reviewers 2022 (With Answer Keys)` and `CSE Masterclass Reviewers 2022 (With Answer Keys)`. The folder currently contains mixed source formats, including PDFs, DOC/DOCX files, CHM files, DJVU files, images, and text. V1 should prioritize PDFs with answer keys and clearly mark any extracted item that cannot be verified.
+Current local source inventory includes new reviewer packs such as `reviewers/new/CSE 2026-2027 EXAMS AND ANSWERS SHEET-20260726T100724Z-1-001` and `reviewers/new/CSE Reviewers 2026 Compilation 1-20260726T100725Z-1-001`. Older 2022 reviewer packs remain useful as fallback or archive material. The folder contains mixed source formats, including PDFs, DOC/DOCX files, images, CHM files, DJVU files, and text. V1 should prioritize the 2026-2027 files, then clearly mark any extracted item that cannot be verified.
 
 ## Product Scope
 
@@ -24,7 +24,7 @@ Current local source inventory includes reviewer packs such as `Latest CSE Revie
 - Supabase Auth for sign up, sign in, session handling, and account identity.
 - Supabase Postgres for profiles, synced progress, follows, attempts, bookmarks, mistakes, and leaderboard stats.
 - Question library grouped by year and topic.
-- Initial content source from local `reviewers/` files, with 2022 as the latest available reviewer year.
+- Initial content source from local `reviewers/new` files, with the latest reviewer pack labeled 2026-2027.
 - Card reviewer mode with answer reveal and explanation.
 - Multiple-choice quiz mode.
 - Mistake review generated from wrong answers.
@@ -251,10 +251,10 @@ Questions are stored as JSON. Each question should include:
 
 ```json
 {
-  "id": "cse-pro-2022-q001",
+  "id": "cse-pro-2026-q001",
   "examLevel": "professional",
-  "year": 2022,
-  "source": "reviewers/CSE Masterclass Reviewers 2022 (With Answer Keys)/Abstract Reasoning/Abstract Reasoning - With Explanation.pdf",
+  "year": 2026,
+  "source": "reviewers/new/CSE 2026-2027 EXAMS AND ANSWERS SHEET-20260726T100724Z-1-001/CSE 2026-2027 EXAMS AND ANSWERS SHEET/Civil Service Exam Reviewer for 2026.pdf",
   "topic": "Verbal Ability",
   "question": "Question text goes here.",
   "choices": [
@@ -359,7 +359,7 @@ Use Supabase row-level security so users can read and update only their own atte
 
 PDF processing is not handled by the public website in V1. The safer workflow is offline:
 
-1. Read source files from the local `reviewers/` folder, starting with the 2022 reviewer sets.
+1. Read source files from the local `reviewers/new` folder, starting with the 2026-2027 reviewer sets.
 2. Extract question text and choices.
 3. Normalize the content into the JSON schema.
 4. Detect or manually add answers.
@@ -425,7 +425,7 @@ src/
   data/
     professional/
       index.ts
-      2022.json
+      2026.ts
   lib/
     supabase.ts
     auth.ts
@@ -535,8 +535,8 @@ Approved decisions from the initial discussion:
 - Revised first version: login-required website.
 - Main experience: Gizmo-like card reviewer plus quiz practice.
 - Stack: React JS with shadcn/ui.
-- Content source: local `reviewers/` folder, starting with the available 2022 reviewer packs.
-- Latest available source year: 2022.
+- Content source: local `reviewers/new` folder, starting with the available 2026-2027 reviewer packs.
+- Latest available source pack: 2026-2027.
 - Answers and explanations must be verified; uncertain items are flagged instead of guessed.
 - Required V1 additions: accounts, cross-device sync, profiles, follows, friend leaderboards, and protected AI explanations.
 - Free-tier target: Vercel Hobby, Supabase Free, and Gemini free-tier where available.
