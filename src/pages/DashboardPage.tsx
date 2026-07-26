@@ -27,7 +27,7 @@ export function DashboardPage() {
               Latest source: 2026-2027
             </Badge>
             <CardTitle className="text-3xl leading-tight">Ready, {profile?.displayName ?? "reviewer"}?</CardTitle>
-            <CardDescription>Professional reviewer progress syncs after Supabase is connected.</CardDescription>
+            <CardDescription>Your Professional reviewer progress follows you across devices.</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-3 sm:grid-cols-2">
             <Button asChild size="lg">
@@ -97,6 +97,11 @@ export function DashboardPage() {
             </Button>
           </CardHeader>
           <CardContent className="space-y-3">
+            {friends.length === 0 ? (
+              <div className="rounded-md border bg-muted/40 p-3 text-sm font-semibold text-muted-foreground">
+                Follow friends to compare scores here.
+              </div>
+            ) : null}
             {friends.map((friend) => (
               <div key={friend.id} className="flex items-center justify-between rounded-md border bg-muted/40 p-3">
                 <div>

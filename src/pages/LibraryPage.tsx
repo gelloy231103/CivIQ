@@ -26,7 +26,7 @@ export function LibraryPage() {
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <CardTitle>{year} Professional</CardTitle>
-                  <CardDescription>{verifiedProfessionalQuestions.length} verified starter questions</CardDescription>
+                  <CardDescription>{verifiedProfessionalQuestions.length} verified practice questions</CardDescription>
                 </div>
                 <Badge variant="gold">new</Badge>
               </div>

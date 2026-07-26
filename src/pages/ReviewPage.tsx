@@ -13,7 +13,7 @@ export function ReviewPage() {
     <div className="space-y-5">
       <div>
         <h1 className="text-3xl font-extrabold">Card Review</h1>
-        <p className="mt-1 text-sm font-semibold text-muted-foreground">Professional 2026 starter set</p>
+        <p className="mt-1 text-sm font-semibold text-muted-foreground">Professional 2026-2027 practice</p>
       </div>
       <ReviewCard
         key={question.id}

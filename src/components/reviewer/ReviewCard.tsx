@@ -31,6 +31,7 @@ export function ReviewCard({
 }: ReviewCardProps) {
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [aiExplanation, setAiExplanation] = useState<string | null>(null);
+  const [aiSource, setAiSource] = useState<"cache" | "provider" | "fallback" | null>(null);
   const [aiLoading, setAiLoading] = useState(false);
   const answered = Boolean(selectedChoice);
   const isCorrect = selectedChoice === question.answer;
@@ -43,9 +44,13 @@ export function ReviewCard({
 
   async function explain() {
     setAiLoading(true);
-    const result = await requestAiExplanation(question, selectedChoice ?? undefined);
-    setAiExplanation(result.explanation);
-    setAiLoading(false);
+    try {
+      const result = await requestAiExplanation(question, selectedChoice ?? undefined);
+      setAiExplanation(result.explanation);
+      setAiSource(result.source);
+    } finally {
+      setAiLoading(false);
+    }
   }
 
   return (
@@ -104,6 +109,11 @@ export function ReviewCard({
                 {getChoice(question, question.answer) ? `, ${getChoice(question, question.answer)?.text}` : ""}
               </p>
               <p className="text-sm leading-6">{aiExplanation ?? question.explanation}</p>
+              {aiSource === "fallback" ? (
+                <p className="text-xs font-semibold text-muted-foreground">
+                  AI explanation is unavailable right now, so the verified explanation is shown.
+                </p>
+              ) : null}
             </div>
           ) : (
             <div className="flex h-full min-h-24 items-center text-sm font-semibold text-muted-foreground">
@@ -113,7 +123,7 @@ export function ReviewCard({
         </div>
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex gap-2">
-            <Button variant="outline" size="icon" onClick={onBookmark} aria-label="Toggle bookmark">
+            <Button variant="outline" size="icon" onClick={onBookmark} aria-label={bookmarked ? "Remove bookmark" : "Save bookmark"}>
               <Bookmark className={cn(bookmarked && "fill-accent text-accent")} aria-hidden="true" />
             </Button>
             <Button variant="outline" onClick={explain} disabled={!answered || aiLoading}>

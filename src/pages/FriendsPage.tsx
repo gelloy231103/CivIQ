@@ -16,6 +16,9 @@ export function FriendsPage() {
   const { profile, isPreview } = useAuth();
   const { followedIds, toggleFollow } = useStudy();
   const results = isPreview ? searchProfiles(query) : remoteProfiles;
+  const emptyText = query.trim()
+    ? "No profiles match that search yet."
+    : "Friends appear here after other people create CivIQ accounts.";
 
   useEffect(() => {
     if (isPreview || !supabase || !profile) return;
@@ -60,7 +63,7 @@ export function FriendsPage() {
         {!isPreview && results.length === 0 ? (
           <Card>
             <CardContent className="p-5 text-sm font-semibold text-muted-foreground">
-              No matching profiles yet. Friends appear after they create CivIQ accounts.
+              {emptyText}
             </CardContent>
           </Card>
         ) : null}

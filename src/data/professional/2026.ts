@@ -53,7 +53,7 @@ export const professional2026Questions: Question[] = [
     year: 2026,
     source,
     topic: "Numerical Reasoning",
-    question: "Find the quotient: 8,000 ÷ 125.",
+    question: "Find the quotient: 8,000 divided by 125.",
     choices: [
       { id: "a", text: "48" },
       { id: "b", text: "64" },

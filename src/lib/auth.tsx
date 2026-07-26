@@ -68,38 +68,39 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signIn = useCallback(async (email: string, password: string) => {
-    if (!supabase) return "Supabase is not configured.";
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    return error?.message ?? null;
+    if (!supabase) return "Accounts are not connected yet.";
+    const { error } = await supabase.auth.signInWithPassword({ email: email.trim().toLowerCase(), password });
+    return formatAuthError(error?.message);
   }, []);
 
   const signInWithGoogle = useCallback(async () => {
-    if (!supabase) return "Supabase is not configured.";
+    if (!supabase) return "Accounts are not connected yet.";
 
-    const redirectTo = typeof window === "undefined" ? undefined : `${window.location.origin}/`;
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo
+        redirectTo: getRedirectUrl()
       }
     });
 
-    return error?.message ?? null;
+    return formatAuthError(error?.message);
   }, []);
 
   const signUp = useCallback(async (email: string, password: string, displayName: string, username: string) => {
-    if (!supabase) return "Supabase is not configured.";
+    if (!supabase) return "Accounts are not connected yet.";
+    const normalizedUsername = normalizeUsername(username);
     const { error } = await supabase.auth.signUp({
-      email,
+      email: email.trim().toLowerCase(),
       password,
       options: {
+        emailRedirectTo: getRedirectUrl(),
         data: {
-          display_name: displayName,
-          username
+          display_name: displayName.trim(),
+          username: normalizedUsername
         }
       }
     });
-    return error?.message ?? null;
+    return formatAuthError(error?.message);
   }, []);
 
   const startPreview = useCallback(() => {
@@ -150,20 +151,34 @@ async function ensureProfile(user: User): Promise<Profile> {
   if (existing) return profileFromRow(existing);
 
   const fallback = profileFromUser(user);
-  const { data: inserted, error } = await supabase
+  const { data: inserted, error } = await insertProfile(fallback);
+
+  if (error) {
+    const uniqueFallback = {
+      ...fallback,
+      username: `${fallback.username.slice(0, 17)}_${user.id.slice(0, 6)}`
+    };
+    const { data: uniqueInserted } = await insertProfile(uniqueFallback);
+    if (uniqueInserted) return profileFromRow(uniqueInserted);
+  }
+
+  if (!inserted) return fallback;
+  return profileFromRow(inserted);
+}
+
+async function insertProfile(profile: Profile) {
+  if (!supabase) return { data: null, error: null };
+  return supabase
     .from("profiles")
     .insert({
-      id: fallback.id,
-      username: fallback.username,
-      display_name: fallback.displayName,
-      avatar_url: fallback.avatarUrl ?? null,
-      visibility: fallback.visibility
+      id: profile.id,
+      username: profile.username,
+      display_name: profile.displayName,
+      avatar_url: profile.avatarUrl ?? null,
+      visibility: profile.visibility
     })
     .select("*")
     .single();
-
-  if (error || !inserted) return fallback;
-  return profileFromRow(inserted);
 }
 
 function profileFromUser(user: User): Profile {
@@ -171,11 +186,7 @@ function profileFromUser(user: User): Profile {
   const fallbackName = user.email?.split("@")[0] || "CivIQ User";
   const displayName = String(metadata.display_name || metadata.full_name || metadata.name || fallbackName);
   const avatarUrl = metadata.avatar_url || metadata.picture;
-  const username = String(metadata.username || fallbackName)
-    .toLowerCase()
-    .replace(/[^a-z0-9_]/g, "_")
-    .replace(/^_+|_+$/g, "")
-    .slice(0, 24);
+  const username = normalizeUsername(String(metadata.username || metadata.preferred_username || fallbackName));
 
   return {
     id: user.id,
@@ -196,4 +207,40 @@ function profileFromRow(row: Record<string, unknown>): Profile {
     visibility: row.visibility === "global" ? "global" : "friends",
     joinedAt: String(row.created_at)
   };
+}
+
+function normalizeUsername(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9_]/g, "_")
+    .replace(/^_+|_+$/g, "")
+    .slice(0, 24);
+}
+
+function getRedirectUrl() {
+  return typeof window === "undefined" ? undefined : `${window.location.origin}/`;
+}
+
+function formatAuthError(message?: string) {
+  if (!message) return null;
+  const normalized = message.toLowerCase();
+
+  if (normalized.includes("invalid login credentials")) {
+    return "Email or password is incorrect.";
+  }
+  if (normalized.includes("email not confirmed")) {
+    return "Please confirm your email before signing in.";
+  }
+  if (normalized.includes("already registered") || normalized.includes("already exists")) {
+    return "An account with this email already exists. Sign in instead.";
+  }
+  if (normalized.includes("password") && normalized.includes("at least")) {
+    return "Use a password with at least 8 characters.";
+  }
+  if (normalized.includes("unsupported provider") || normalized.includes("provider is not enabled")) {
+    return "Google sign-in is not enabled yet.";
+  }
+
+  return message;
 }

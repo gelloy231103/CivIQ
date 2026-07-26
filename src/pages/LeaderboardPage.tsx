@@ -122,7 +122,7 @@ function LeaderboardRows({ rows }: { rows: Array<{ profile: Profile; stat: Leade
               <div className="min-w-0">
                 <p className="truncate font-bold">{row.profile.displayName}</p>
                 <p className="truncate text-sm text-muted-foreground">
-                  {formatPercent(row.stat.accuracy)} · {row.stat.completedQuestions} done · streak {row.stat.currentStreak}
+                  {formatPercent(row.stat.accuracy)} | {row.stat.completedQuestions} done | streak {row.stat.currentStreak}
                 </p>
               </div>
             </div>

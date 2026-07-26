@@ -1,6 +1,8 @@
 import { Bookmark } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { verifiedProfessionalQuestions } from "@/data/professional";
+import { Link } from "@/lib/router";
 import { useStudy } from "@/lib/study-state";
 
 export function BookmarksPage() {
@@ -18,6 +20,9 @@ export function BookmarksPage() {
               <p className="font-bold">No bookmarks yet</p>
               <p className="mt-1 text-sm text-muted-foreground">Saved questions will appear here.</p>
             </div>
+            <Button asChild variant="outline">
+              <Link to="/review">Start review</Link>
+            </Button>
           </CardContent>
         </Card>
       ) : (

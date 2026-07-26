@@ -66,7 +66,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               <p className="truncate text-sm font-bold">{profile?.displayName}</p>
               <p className="truncate text-xs text-muted-foreground">
                 @{profile?.username}
-                {isPreview ? " · preview" : ""}
+                {isPreview ? " - preview" : ""}
               </p>
             </div>
           </div>

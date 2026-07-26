@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { useAuth } from "@/lib/auth";
 import { calculateLeaderboardStat } from "@/lib/leaderboard-service";
@@ -25,6 +25,9 @@ export function ProgressPage() {
       <Card>
         <CardHeader>
           <CardTitle>Topic breakdown</CardTitle>
+          <CardDescription>
+            {snapshot.total === 0 ? "Answer questions to unlock topic accuracy." : "Accuracy updates after each practice answer."}
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           {snapshot.topics.map((topic) => (
