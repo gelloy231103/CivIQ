@@ -1,9 +1,10 @@
 {
   "source": "Civil Service Reviewer",
   "sourceFile": "Civil Service Exam Reviewer for 2026.pdf",
-  "imported": 460,
-  "skipped": 260,
+  "imported": 490,
+  "skipped": 230,
   "byTopic": {
+    "Abstract Reasoning": 30,
     "Analogy": 34,
     "Filipino": 169,
     "Grammar": 81,
@@ -13,6 +14,7 @@
     "Vocabulary": 25
   },
   "bySection": {
+    "Abstract Reasoning": 30,
     "Antonyms": 2,
     "Correct Usage": 35,
     "Data Sufficiency": 19,

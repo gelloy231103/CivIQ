@@ -26,6 +26,8 @@ export type Question = {
   source: string;
   topic: QuestionTopic;
   question: string;
+  imageUrl?: string;
+  imageAlt?: string;
   choices: Choice[];
   answer: string;
   explanation: string;

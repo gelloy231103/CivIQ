@@ -106,6 +106,16 @@ export function QuizPage() {
           </div>
           <QuestionTimer resetKey={question.id} paused={Boolean(currentAnswer)} />
           <CardTitle className="pt-3 text-xl leading-8">{question.question}</CardTitle>
+          {question.imageUrl ? (
+            <div className="mt-4 overflow-hidden rounded-md border bg-white p-2">
+              <img
+                src={question.imageUrl}
+                alt={question.imageAlt ?? question.question}
+                className="mx-auto max-h-[32rem] w-full object-contain"
+                loading="lazy"
+              />
+            </div>
+          ) : null}
         </CardHeader>
         <CardContent className="space-y-3">
           {question.choices.map((choice) => {

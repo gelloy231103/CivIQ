@@ -15514,5 +15514,1051 @@
     },
     "status": "verified",
     "id": "cse-pro-2026-0460"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 154",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the option that logically completes the circle pattern. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-01.png",
+    "imageAlt": "Abstract Reasoning item 1 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The answer key marks choice D as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0461"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 154",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the option that logically completes the circle pattern. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-02.png",
+    "imageAlt": "Abstract Reasoning item 2 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The answer key marks choice B as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0462"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 155",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the option that logically completes the circle pattern. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-03.png",
+    "imageAlt": "Abstract Reasoning item 3 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The answer key marks choice B as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0463"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 155",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the option that logically completes the circle pattern. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-04.png",
+    "imageAlt": "Abstract Reasoning item 4 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The answer key marks choice C as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0464"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 155",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the option that logically completes the circle pattern. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-05.png",
+    "imageAlt": "Abstract Reasoning item 5 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The answer key marks choice D as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0465"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 156",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the option that replaces the missing hexagon in the pyramid. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-06.png",
+    "imageAlt": "Abstract Reasoning item 6 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The answer key marks choice A as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0466"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 156",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the option that fits the missing square. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-07.png",
+    "imageAlt": "Abstract Reasoning item 7 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The answer key marks choice D as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0467"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 157",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the option that fits the missing square. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-08.png",
+    "imageAlt": "Abstract Reasoning item 8 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The answer key marks choice D as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0468"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 157",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the option that fits the missing square. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-09.png",
+    "imageAlt": "Abstract Reasoning item 9 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The answer key marks choice C as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0469"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 157",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the option that fits the missing square. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-10.png",
+    "imageAlt": "Abstract Reasoning item 10 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The answer key marks choice B as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0470"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 157",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the option that fits the missing square. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-11.png",
+    "imageAlt": "Abstract Reasoning item 11 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The answer key marks choice C as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0471"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 158",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the option that fits the missing square. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-12.png",
+    "imageAlt": "Abstract Reasoning item 12 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The answer key marks choice B as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0472"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 158",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the option that completes the Abstract Reasoning figure. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-13.png",
+    "imageAlt": "Abstract Reasoning item 13 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The answer key marks choice A as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0473"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 158",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the missing tile by comparing each row and column. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-14.png",
+    "imageAlt": "Abstract Reasoning item 14 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The answer key marks choice D as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0474"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 158",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the missing tile by comparing each row and column. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-15.png",
+    "imageAlt": "Abstract Reasoning item 15 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The answer key marks choice D as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0475"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 159",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the missing tile by comparing each row and column. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-16.png",
+    "imageAlt": "Abstract Reasoning item 16 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The answer key marks choice B as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0476"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 159",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the option that completes the Abstract Reasoning figure. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-17.png",
+    "imageAlt": "Abstract Reasoning item 17 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The answer key marks choice B as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0477"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 159",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the missing piece that completes the symmetrical square. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-18.png",
+    "imageAlt": "Abstract Reasoning item 18 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The answer key marks choice B as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0478"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 159",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the figure that contains the smaller figure shown on the left. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-19.png",
+    "imageAlt": "Abstract Reasoning item 19 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The answer key marks choice B as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0479"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 160",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the figure that contains the smaller figure shown on the left. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-20.png",
+    "imageAlt": "Abstract Reasoning item 20 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The answer key marks choice D as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0480"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 160",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the figure that contains the smaller figure shown on the left. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-21.png",
+    "imageAlt": "Abstract Reasoning item 21 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The answer key marks choice B as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0481"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 160",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the figure that contains the smaller figure shown on the left. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-22.png",
+    "imageAlt": "Abstract Reasoning item 22 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The answer key marks choice D as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0482"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 160",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the figure that contains the smaller figure shown on the left. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-23.png",
+    "imageAlt": "Abstract Reasoning item 23 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The answer key marks choice D as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0483"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 160",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the figure that contains the smaller figure shown on the left. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-24.png",
+    "imageAlt": "Abstract Reasoning item 24 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The answer key marks choice A as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0484"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 161",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the figure that contains the smaller figure shown on the left. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-25.png",
+    "imageAlt": "Abstract Reasoning item 25 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The answer key marks choice B as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0485"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 161",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the figure that contains the smaller figure shown on the left. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-26.png",
+    "imageAlt": "Abstract Reasoning item 26 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The answer key marks choice C as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0486"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 161",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the figure that contains the smaller figure shown on the left. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-27.png",
+    "imageAlt": "Abstract Reasoning item 27 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The answer key marks choice C as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0487"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 161",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the figure that contains the smaller figure shown on the left. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-28.png",
+    "imageAlt": "Abstract Reasoning item 28 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The answer key marks choice C as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0488"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 162",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the figure that contains the smaller figure shown on the left. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-29.png",
+    "imageAlt": "Abstract Reasoning item 29 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The answer key marks choice B as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0489"
+  },
+  {
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Abstract Reasoning, page 162",
+    "topic": "Abstract Reasoning",
+    "question": "Choose the figure that contains the smaller figure shown on the left. Options in the image are ordered left to right.",
+    "imageUrl": "/reviewer-assets/2026/abstract/abstract-30.png",
+    "imageAlt": "Abstract Reasoning item 30 visual pattern and answer options.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "Option A"
+      },
+      {
+        "id": "b",
+        "text": "Option B"
+      },
+      {
+        "id": "c",
+        "text": "Option C"
+      },
+      {
+        "id": "d",
+        "text": "Option D"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The answer key marks choice D as correct for this visual item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the marked answer key.",
+      "incorrect": "Review the figure and compare the option order with the marked answer."
+    },
+    "status": "verified",
+    "id": "cse-pro-2026-0490"
   }
 ]

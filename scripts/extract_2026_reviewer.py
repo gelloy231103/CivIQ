@@ -8,12 +8,14 @@ from pathlib import Path
 from typing import Any
 
 import pdfplumber
+from PIL import Image, ImageDraw, ImageOps
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE_NAME = "Civil Service Exam Reviewer for 2026.pdf"
 OUTPUT_JSON = ROOT / "src/data/professional/2026.generated.json"
 SUMMARY_JSON = ROOT / "src/data/professional/2026.import-summary.json"
+ABSTRACT_ASSET_DIR = ROOT / "public/reviewer-assets/2026/abstract"
 
 SOURCE_LABEL = "Civil Service Reviewer"
 
@@ -56,6 +58,86 @@ GENERIC_ERROR_CHOICES = [
     ("d", "Marked part D"),
     ("e", "No error"),
 ]
+
+ABSTRACT_ANSWERS = {
+    1: "d",
+    2: "b",
+    3: "b",
+    4: "c",
+    5: "d",
+    6: "a",
+    7: "d",
+    8: "d",
+    9: "c",
+    10: "b",
+    11: "c",
+    12: "b",
+    13: "a",
+    14: "d",
+    15: "d",
+    16: "b",
+    17: "b",
+    18: "b",
+    19: "b",
+    20: "d",
+    21: "b",
+    22: "d",
+    23: "d",
+    24: "a",
+    25: "b",
+    26: "c",
+    27: "c",
+    28: "c",
+    29: "b",
+    30: "d",
+}
+
+ABSTRACT_PROMPTS = {
+    range(1, 6): "Choose the option that logically completes the circle pattern. Options in the image are ordered left to right.",
+    range(6, 7): "Choose the option that replaces the missing hexagon in the pyramid. Options in the image are ordered left to right.",
+    range(7, 13): "Choose the option that fits the missing square. Options in the image are ordered left to right.",
+    range(14, 17): "Choose the missing tile by comparing each row and column. Options in the image are ordered left to right.",
+    range(18, 19): "Choose the missing piece that completes the symmetrical square. Options in the image are ordered left to right.",
+    range(19, 31): "Choose the figure that contains the smaller figure shown on the left. Options in the image are ordered left to right.",
+}
+
+# Crops use PDF point coordinates and intentionally omit PDF answer labels.
+ABSTRACT_IMAGE_PIECES = {
+    1: [(154, 96, 128, 222, 268), (154, 238, 158, 455, 207)],
+    2: [(154, 92, 330, 204, 467), (154, 242, 498, 455, 547)],
+    3: [(155, 86, 64, 200, 202), (155, 242, 80, 458, 128)],
+    4: [(155, 90, 226, 213, 376), (155, 232, 238, 475, 290)],
+    5: [(155, 85, 468, 210, 622), (155, 232, 493, 470, 548)],
+    6: [(156, 82, 160, 208, 282), (156, 232, 296, 462, 348)],
+    7: [(156, 94, 412, 198, 517), (156, 234, 526, 462, 575)],
+    8: [(157, 94, 64, 200, 176), (157, 232, 54, 470, 110)],
+    9: [(157, 94, 176, 202, 290), (157, 242, 176, 465, 217)],
+    10: [(157, 95, 320, 202, 431), (157, 236, 306, 465, 358)],
+    11: [(157, 96, 480, 212, 600), (157, 230, 468, 470, 528)],
+    12: [(158, 98, 64, 212, 184), (158, 230, 64, 470, 112)],
+    13: [(158, 100, 190, 216, 308), (158, 235, 205, 405, 248)],
+    14: [(158, 100, 398, 212, 518), (158, 235, 408, 470, 455)],
+    15: [(158, 100, 514, 212, 625), (158, 234, 520, 470, 562)],
+    16: [(159, 100, 64, 212, 175), (159, 240, 64, 470, 115)],
+    17: [(159, 100, 182, 212, 290), (159, 240, 181, 462, 218)],
+    18: [(159, 100, 365, 218, 485), (159, 225, 355, 480, 420)],
+    19: [(159, 100, 606, 465, 675)],
+    20: [(160, 92, 88, 470, 160)],
+    21: [(160, 100, 268, 470, 340)],
+    22: [(160, 95, 380, 470, 452)],
+    23: [(160, 100, 494, 475, 568)],
+    24: [(160, 100, 632, 475, 708)],
+    25: [(161, 95, 96, 475, 172)],
+    26: [(161, 85, 205, 465, 320)],
+    27: [(161, 100, 408, 475, 482)],
+    28: [(161, 105, 525, 480, 594)],
+    29: [(162, 100, 64, 470, 132)],
+    30: [(162, 98, 164, 475, 240)],
+}
+
+ABSTRACT_ASSET_ERASURES = {
+    1: [(112, 206, 158, 254)],
+}
 
 
 def is_red(char: dict[str, Any]) -> bool:
@@ -145,6 +227,95 @@ def should_skip(candidate: dict[str, Any], question_text: str, choices: list[dic
     if len({choice["id"] for choice in choices}) != len(choices):
         return True
     return False
+
+
+def abstract_prompt(question_number: int) -> str:
+    for question_range, prompt in ABSTRACT_PROMPTS.items():
+        if question_number in question_range:
+            return prompt
+    return "Choose the option that completes the Abstract Reasoning figure. Options in the image are ordered left to right."
+
+
+def neutralize_answer_color(image: Image.Image) -> Image.Image:
+    image = image.convert("RGB")
+    pixels = image.load()
+    for y in range(image.height):
+        for x in range(image.width):
+            red, green, blue = pixels[x, y]
+            if red > 130 and green < 100 and blue < 100:
+                pixels[x, y] = (0, 0, 0)
+    return ImageOps.autocontrast(ImageOps.grayscale(image), cutoff=1).convert("RGB")
+
+
+def crop_rendered_page(page_image: Image.Image, box: tuple[int, int, int, int, int], scale: int) -> Image.Image:
+    _, x0, top, x1, bottom = box
+    return page_image.crop(tuple(int(value * scale) for value in (x0, top, x1, bottom)))
+
+
+def compose_abstract_asset(number: int, pieces: list[Image.Image]) -> Image.Image:
+    label_height = 42
+    spacing = 28
+    padding = 28
+    width = max(piece.width for piece in pieces) + padding * 2
+    height = label_height + sum(piece.height for piece in pieces) + spacing * (len(pieces) - 1) + padding
+    canvas = Image.new("RGB", (width, height), "white")
+    draw = ImageDraw.Draw(canvas)
+    draw.text((padding, 18), f"Item {number}", fill=(17, 24, 39))
+    y = label_height
+    for piece in pieces:
+        x = (width - piece.width) // 2
+        canvas.paste(piece, (x, y))
+        y += piece.height + spacing
+    draw = ImageDraw.Draw(canvas)
+    for erasure in ABSTRACT_ASSET_ERASURES.get(number, []):
+        draw.rectangle(erasure, fill="white")
+    return canvas
+
+
+def extract_abstract_questions(source_pdf: Path) -> list[dict[str, Any]]:
+    ABSTRACT_ASSET_DIR.mkdir(parents=True, exist_ok=True)
+    scale = 2
+    needed_pages = sorted({piece[0] for pieces in ABSTRACT_IMAGE_PIECES.values() for piece in pieces})
+
+    generated: list[dict[str, Any]] = []
+    with pdfplumber.open(str(source_pdf)) as document:
+        rendered_pages = {
+            page_number: document.pages[page_number - 1].to_image(resolution=72 * scale).original.convert("RGB")
+            for page_number in needed_pages
+        }
+
+        for number, boxes in ABSTRACT_IMAGE_PIECES.items():
+            parts = [neutralize_answer_color(crop_rendered_page(rendered_pages[box[0]], box, scale)) for box in boxes]
+            asset = compose_abstract_asset(number, parts)
+            asset_path = ABSTRACT_ASSET_DIR / f"abstract-{number:02d}.png"
+            asset.save(asset_path, optimize=True)
+            choice_ids = ["a", "b", "c"] if number == 13 else ["a", "b", "c", "d"]
+            generated.append(
+                {
+                    "examLevel": "professional",
+                    "year": 2026,
+                    "source": SOURCE_LABEL,
+                    "topic": "Abstract Reasoning",
+                    "question": abstract_prompt(number),
+                    "imageUrl": f"/reviewer-assets/2026/abstract/{asset_path.name}",
+                    "imageAlt": f"Abstract Reasoning item {number} visual pattern and answer options.",
+                    "choices": [
+                        {"id": choice_id, "text": f"Option {choice_id.upper()}"}
+                        for choice_id in choice_ids
+                    ],
+                    "answer": ABSTRACT_ANSWERS[number],
+                    "explanation": f"The answer key marks choice {ABSTRACT_ANSWERS[number].upper()} as correct for this visual item.",
+                    "feedback": {
+                        "correct": "Correct. Your answer matches the marked answer key.",
+                        "incorrect": "Review the figure and compare the option order with the marked answer.",
+                    },
+                    "status": "verified",
+                    "_section": "Abstract Reasoning",
+                    "_page": boxes[0][0],
+                }
+            )
+
+    return generated
 
 
 def finalize_candidate(
@@ -342,6 +513,9 @@ def main() -> None:
 
     source_pdf = (args.pdf or default_source_pdf()).resolve()
     imported, skipped = extract_questions(source_pdf)
+    abstract_questions = extract_abstract_questions(source_pdf)
+    skipped = [item for item in skipped if item.get("section") != "Abstract Reasoning"]
+    imported.extend(abstract_questions)
     generated = []
     for index, item in enumerate(imported, start=1):
         section = item.pop("_section")
