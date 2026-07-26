@@ -10,6 +10,7 @@ type AuthContextValue = {
   profile: Profile | null;
   isPreview: boolean;
   signIn: (email: string, password: string) => Promise<string | null>;
+  signInWithGoogle: () => Promise<string | null>;
   signUp: (email: string, password: string, displayName: string, username: string) => Promise<string | null>;
   startPreview: () => void;
   signOut: () => Promise<void>;
@@ -72,6 +73,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return error?.message ?? null;
   }, []);
 
+  const signInWithGoogle = useCallback(async () => {
+    if (!supabase) return "Supabase is not configured.";
+
+    const redirectTo = typeof window === "undefined" ? undefined : `${window.location.origin}/`;
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo
+      }
+    });
+
+    return error?.message ?? null;
+  }, []);
+
   const signUp = useCallback(async (email: string, password: string, displayName: string, username: string) => {
     if (!supabase) return "Supabase is not configured.";
     const { error } = await supabase.auth.signUp({
@@ -109,11 +124,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       profile,
       isPreview,
       signIn,
+      signInWithGoogle,
       signUp,
       startPreview,
       signOut
     }),
-    [isPreview, loading, profile, session, signIn, signOut, signUp, startPreview]
+    [isPreview, loading, profile, session, signIn, signInWithGoogle, signOut, signUp, startPreview]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
@@ -153,6 +169,8 @@ async function ensureProfile(user: User): Promise<Profile> {
 function profileFromUser(user: User): Profile {
   const metadata = user.user_metadata ?? {};
   const fallbackName = user.email?.split("@")[0] || "CivIQ User";
+  const displayName = String(metadata.display_name || metadata.full_name || metadata.name || fallbackName);
+  const avatarUrl = metadata.avatar_url || metadata.picture;
   const username = String(metadata.username || fallbackName)
     .toLowerCase()
     .replace(/[^a-z0-9_]/g, "_")
@@ -162,7 +180,8 @@ function profileFromUser(user: User): Profile {
   return {
     id: user.id,
     username: username || `user_${user.id.slice(0, 8)}`,
-    displayName: String(metadata.display_name || fallbackName),
+    displayName,
+    avatarUrl: avatarUrl ? String(avatarUrl) : undefined,
     visibility: "friends",
     joinedAt: new Date().toISOString()
   };

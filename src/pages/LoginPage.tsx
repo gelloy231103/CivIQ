@@ -1,5 +1,5 @@
 import { FormEvent, useState } from "react";
-import { Brain, LockKeyhole } from "lucide-react";
+import { Brain, Chrome, LockKeyhole } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,23 +8,24 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/lib/auth";
 
 export function LoginPage() {
-  const { signIn, signUp } = useAuth();
+  const { signIn, signInWithGoogle, signUp } = useAuth();
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loadingAction, setLoadingAction] = useState<"google" | "signin" | "signup" | null>(null);
+  const loading = loadingAction !== null;
 
   async function submitSignIn(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setLoading(true);
+    setLoadingAction("signin");
     setError(null);
     const form = new FormData(event.currentTarget);
     const nextError = await signIn(String(form.get("email")), String(form.get("password")));
     setError(nextError);
-    setLoading(false);
+    setLoadingAction(null);
   }
 
   async function submitSignUp(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setLoading(true);
+    setLoadingAction("signup");
     setError(null);
     const form = new FormData(event.currentTarget);
     const nextError = await signUp(
@@ -34,7 +35,17 @@ export function LoginPage() {
       String(form.get("username"))
     );
     setError(nextError);
-    setLoading(false);
+    setLoadingAction(null);
+  }
+
+  async function startGoogleSignIn() {
+    setLoadingAction("google");
+    setError(null);
+    const nextError = await signInWithGoogle();
+    if (nextError) {
+      setError(nextError);
+      setLoadingAction(null);
+    }
   }
 
   return (
@@ -52,6 +63,15 @@ export function LoginPage() {
           </div>
         </CardHeader>
         <CardContent>
+          <Button className="mb-5 w-full" variant="outline" disabled={loading} onClick={startGoogleSignIn}>
+            <Chrome aria-hidden="true" />
+            {loadingAction === "google" ? "Opening Google" : "Continue with Google"}
+          </Button>
+          <div className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            <span className="h-px flex-1 bg-border" />
+            <span>Email login</span>
+            <span className="h-px flex-1 bg-border" />
+          </div>
           <Tabs defaultValue="signin">
             <TabsList className="grid w-full grid-cols-2">
               <TabsTrigger value="signin">Sign in</TabsTrigger>
@@ -64,7 +84,7 @@ export function LoginPage() {
                 {error ? <p className="rounded-md bg-destructive/10 p-3 text-sm font-semibold text-destructive">{error}</p> : null}
                 <Button className="w-full" disabled={loading}>
                   <LockKeyhole aria-hidden="true" />
-                  {loading ? "Signing in" : "Sign in"}
+                  {loadingAction === "signin" ? "Signing in" : "Sign in"}
                 </Button>
               </form>
             </TabsContent>
@@ -76,7 +96,7 @@ export function LoginPage() {
                 <Field label="Password" name="password" type="password" />
                 {error ? <p className="rounded-md bg-destructive/10 p-3 text-sm font-semibold text-destructive">{error}</p> : null}
                 <Button className="w-full" disabled={loading}>
-                  {loading ? "Creating account" : "Create account"}
+                  {loadingAction === "signup" ? "Creating account" : "Create account"}
                 </Button>
               </form>
             </TabsContent>
