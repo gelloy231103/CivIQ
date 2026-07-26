@@ -1,13 +1,14 @@
 import path from "node:path";
 import react from "@vitejs/plugin-react";
 import { defineConfig, loadEnv, type Plugin } from "vite";
+import adminImportsHandler from "./api/admin/imports";
 import { explainWithGemini, type ExplainRequest } from "./api/explain-question";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
 
   return {
-    plugins: [react(), localExplainApi(env.GEMINI_API_KEY)],
+    plugins: [react(), localExplainApi(env.GEMINI_API_KEY), localAdminImportsApi(env)],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src")
@@ -25,6 +26,57 @@ export default defineConfig(({ mode }) => {
     }
   };
 });
+
+function localAdminImportsApi(env: Record<string, string>): Plugin {
+  return {
+    name: "civiq-local-admin-imports-api",
+    configureServer(server) {
+      installServerEnv(env);
+      server.middlewares.use("/api/admin/imports", async (request, response) => {
+        try {
+          const body = request.method === "POST" ? await readJson(request) : undefined;
+          let statusCode = 200;
+          const vercelResponse = {
+            status(code: number) {
+              statusCode = code;
+              return vercelResponse;
+            },
+            json(body: unknown) {
+              sendJson(response, statusCode, body);
+            },
+            setHeader(name: string, value: string) {
+              response.setHeader(name, value);
+            }
+          };
+
+          await adminImportsHandler(
+            {
+              method: request.method,
+              body,
+              headers: request.headers
+            },
+            vercelResponse
+          );
+        } catch {
+          sendJson(response, 400, { error: "Could not process the admin import request." });
+        }
+      });
+    }
+  };
+}
+
+function installServerEnv(env: Record<string, string>) {
+  for (const key of [
+    "ADMIN_EMAILS",
+    "SUPABASE_URL",
+    "SUPABASE_ANON_KEY",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "VITE_SUPABASE_URL",
+    "VITE_SUPABASE_ANON_KEY"
+  ]) {
+    if (env[key] && !process.env[key]) process.env[key] = env[key];
+  }
+}
 
 function localExplainApi(apiKey?: string): Plugin {
   return {

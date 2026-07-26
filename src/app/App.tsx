@@ -7,6 +7,7 @@ import { StudyProvider } from "@/lib/study-state";
 import { LoginPage } from "@/pages/LoginPage";
 
 const AnswerReviewPage = lazy(() => import("@/pages/AnswerReviewPage").then((module) => ({ default: module.AnswerReviewPage })));
+const AdminImportsPage = lazy(() => import("@/pages/AdminImportsPage").then((module) => ({ default: module.AdminImportsPage })));
 const BookmarksPage = lazy(() => import("@/pages/BookmarksPage").then((module) => ({ default: module.BookmarksPage })));
 const DashboardPage = lazy(() => import("@/pages/DashboardPage").then((module) => ({ default: module.DashboardPage })));
 const FriendsPage = lazy(() => import("@/pages/FriendsPage").then((module) => ({ default: module.FriendsPage })));
@@ -76,6 +77,10 @@ function renderPage(path: string) {
 
   if (path === "/answers" || path.startsWith("/answers/")) {
     return <AnswerReviewPage />;
+  }
+
+  if (path === "/admin/imports") {
+    return <AdminImportsPage />;
   }
 
   switch (path) {

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import {
   BarChart3,
   BookOpen,
@@ -7,6 +7,7 @@ import {
   Library,
   LogOut,
   Medal,
+  ShieldCheck,
   UserRound,
   UsersRound
 } from "lucide-react";
@@ -15,6 +16,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useAuth } from "@/lib/auth";
+import { listAdminImports } from "@/lib/admin-import-client";
 import { NavLink } from "@/lib/router";
 import { cn } from "@/lib/utils";
 
@@ -33,13 +35,33 @@ const secondaryNav = [
 ];
 
 export function AppShell({ children }: { children: ReactNode }) {
-  const { profile, signOut, isPreview } = useAuth();
+  const { profile, signOut, isPreview, session } = useAuth();
+  const [adminVisible, setAdminVisible] = useState(false);
+  const visibleSecondaryNav = adminVisible
+    ? [...secondaryNav, { to: "/admin/imports", label: "Admin", icon: ShieldCheck }]
+    : secondaryNav;
   const initials = profile?.displayName
     .split(" ")
     .map((part) => part[0])
     .join("")
     .slice(0, 2)
     .toUpperCase();
+
+  useEffect(() => {
+    if (!session || isPreview) {
+      setAdminVisible(false);
+      return;
+    }
+
+    let cancelled = false;
+    listAdminImports().then((result) => {
+      if (!cancelled) setAdminVisible(!result.denied && !result.error);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isPreview, session]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -52,7 +74,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
         </div>
         <nav className="mt-8 grid gap-1">
-          {[...primaryNav, ...secondaryNav].map((item) => (
+          {[...primaryNav, ...visibleSecondaryNav].map((item) => (
             <SidebarLink key={item.to} item={item} />
           ))}
         </nav>

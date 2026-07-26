@@ -13,6 +13,7 @@ Login-required Civil Service Exam Professional reviewer for laptop and mobile we
 - Visual Abstract Reasoning question assets with neutral answer labels
 - Smart quiz sessions: Quick 10, Focused 25, Mock 170, and resumable sessions
 - Year-based answer sheets with answers visible by default
+- Protected admin reviewer source uploads into private Supabase Storage
 
 ## Local Setup
 
@@ -38,9 +39,11 @@ For Vercel deployment, add this environment variable in the Vercel project setti
 GEMINI_API_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
 AI_EXPLANATION_DAILY_LIMIT=10
+ADMIN_EMAILS=
 ```
 
 `SUPABASE_SERVICE_ROLE_KEY` is server-only. It lets the API cache AI explanations and enforce per-user daily quota. Never expose it through `VITE_` variables.
+`ADMIN_EMAILS` is a comma-separated allowlist for `/admin/imports`.
 
 ## Reviewer Import
 
@@ -51,6 +54,15 @@ python scripts/import_reviewer_sources.py reviewers/new
 ```
 
 The script writes extracted text and `inventory.json` into `tmp/reviewer-import`. Generated app question data should still be reviewed before being marked verified.
+
+Admins can also open `/admin/imports` after signing in with an allowlisted account. Uploaded reviewer sources are staged in the private `reviewer-sources` bucket and are not published to the student question bank until extracted and verified.
+
+## Checks
+
+```bash
+npm.cmd run test
+npm.cmd run build
+```
 
 ## Privacy
 
