@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { verifiedProfessionalQuestions } from "@/data/professional";
-import { sampleFriends } from "@/lib/leaderboard-service";
 import { useAuth } from "@/lib/auth";
 import type { AttemptMode, AttemptRecord } from "@/lib/question-model";
 import { createAttempt } from "@/lib/quiz-engine";
@@ -26,7 +25,7 @@ const StudyContext = createContext<StudyContextValue | null>(null);
 const initialState: StudyState = {
   attempts: [],
   bookmarkedIds: new Set<string>(),
-  followedIds: new Set(sampleFriends.slice(0, 2).map((profile) => profile.id))
+  followedIds: new Set<string>()
 };
 
 export function StudyProvider({ children }: { children: ReactNode }) {
@@ -138,7 +137,11 @@ async function loadRemoteStudyState(userId: string): Promise<StudyState> {
   if (!supabase) return initialState;
 
   const [attemptsResult, bookmarksResult, followsResult] = await Promise.all([
-    supabase.from("attempts").select("*").eq("user_id", userId).order("answered_at", { ascending: true }),
+    supabase
+      .from("attempts")
+      .select("id, question_id, selected_choice, is_correct, mode, answered_at")
+      .eq("user_id", userId)
+      .order("answered_at", { ascending: true }),
     supabase.from("bookmarks").select("question_id").eq("user_id", userId),
     supabase.from("follows").select("following_id").eq("follower_id", userId)
   ]);

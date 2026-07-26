@@ -1,4 +1,5 @@
-import { ArrowRight, BookMarked, Brain, Medal, Target } from "lucide-react";
+import { ArrowRight, BookMarked, Brain, Medal, PlayCircle, Target } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -6,16 +7,48 @@ import { verifiedProfessionalQuestions } from "@/data/professional";
 import { useAuth } from "@/lib/auth";
 import { calculateLeaderboardStat, sampleFriends, sampleFriendStats } from "@/lib/leaderboard-service";
 import { buildProgressSnapshot } from "@/lib/progress-service";
+import {
+  getActiveLocalQuizSessions,
+  getActiveRemoteQuizSessions,
+  mergeQuizSessions,
+  type QuizSession
+} from "@/lib/quiz-session-service";
 import { Link } from "@/lib/router";
+import { quizSessionTitle, selectionFromKey, studyPath, studySelectionTitle } from "@/lib/study-selection";
 import { useStudy } from "@/lib/study-state";
+import { supabase } from "@/lib/supabase";
 import { formatPercent } from "@/lib/utils";
 
 export function DashboardPage() {
-  const { profile } = useAuth();
+  const { profile, isPreview } = useAuth();
   const { attempts, bookmarkedIds, followedIds } = useStudy();
+  const [activeSessions, setActiveSessions] = useState<QuizSession[]>([]);
   const progress = buildProgressSnapshot(attempts, bookmarkedIds);
   const userStat = calculateLeaderboardStat(profile?.id ?? "preview-user", attempts, verifiedProfessionalQuestions.length);
   const friends = sampleFriends.filter((friend) => followedIds.has(friend.id)).slice(0, 2);
+  const latestSession = activeSessions[0];
+  const latestSelection = latestSession ? selectionFromKey(latestSession.selectionKey) : null;
+  const latestAnswered = latestSession ? Object.keys(latestSession.answers).length : 0;
+  const latestTotal = latestSession?.questionIds.length ?? 0;
+  const latestCompletion = latestTotal > 0 ? (latestAnswered / latestTotal) * 100 : 0;
+
+  useEffect(() => {
+    const userId = profile?.id ?? "preview-user";
+    const localSessions = getActiveLocalQuizSessions(userId);
+    if (!profile || isPreview || !supabase) {
+      setActiveSessions(localSessions);
+      return;
+    }
+
+    let cancelled = false;
+    getActiveRemoteQuizSessions(profile.id).then((remoteSessions) => {
+      if (!cancelled) setActiveSessions(mergeQuizSessions([...localSessions, ...remoteSessions]));
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isPreview, profile]);
 
   return (
     <div className="space-y-5">
@@ -53,6 +86,29 @@ export function DashboardPage() {
           </CardContent>
         </Card>
       </section>
+
+      {latestSession && latestSelection ? (
+        <Card>
+          <CardContent className="grid gap-4 p-5 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <div className="mb-2 flex h-11 w-11 items-center justify-center rounded-md bg-secondary text-secondary-foreground">
+                <PlayCircle className="h-5 w-5" aria-hidden="true" />
+              </div>
+              <h2 className="text-xl font-extrabold">Continue {quizSessionTitle(latestSession.mode)}</h2>
+              <p className="mt-1 text-sm font-semibold text-muted-foreground">
+                {studySelectionTitle(latestSelection)} - {latestAnswered} of {latestTotal} answered
+              </p>
+              <Progress className="mt-4" value={latestCompletion} />
+            </div>
+            <Button asChild>
+              <Link to={studyPath("quiz", latestSelection, { sessionMode: latestSession.mode })}>
+                Continue
+                <ArrowRight aria-hidden="true" />
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+      ) : null}
 
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <Metric title="Attempted" value={progress.total} icon={Target} />

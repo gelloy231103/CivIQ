@@ -1,5 +1,6 @@
 import type { Question } from "@/lib/question-model";
 import { getChoice } from "@/lib/question-model";
+import { supabase } from "@/lib/supabase";
 
 export type AiExplanationResult = {
   explanation: string;
@@ -10,10 +11,12 @@ export type AiExplanationResult = {
 export async function requestAiExplanation(question: Question, selectedChoice?: string): Promise<AiExplanationResult> {
   const choice = selectedChoice ? getChoice(question, selectedChoice) : undefined;
   try {
+    const token = supabase ? (await supabase.auth.getSession()).data.session?.access_token : undefined;
     const response = await fetch("/api/explain-question", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {})
       },
       body: JSON.stringify({
         questionId: question.id,

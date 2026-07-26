@@ -130,7 +130,7 @@ function AnswerItem({
   const correctChoice = getChoice(question, question.answer);
 
   return (
-    <Card>
+    <Card className="min-w-0 overflow-hidden">
       <CardHeader className="space-y-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-2">
@@ -146,7 +146,7 @@ function AnswerItem({
             <Bookmark className={cn(bookmarked && "fill-accent text-accent")} aria-hidden="true" />
           </Button>
         </div>
-        <CardTitle className="text-lg leading-7">{question.question}</CardTitle>
+        <CardTitle className="break-words text-lg leading-7">{question.question}</CardTitle>
         {question.imageUrl ? (
           <div className="overflow-hidden rounded-md border bg-white p-2">
             <img
@@ -178,7 +178,7 @@ function AnswerItem({
                 >
                   {choice.id}
                 </span>
-                <span className="leading-6">{choice.text}</span>
+                <span className="min-w-0 break-words leading-6">{choice.text}</span>
               </div>
             );
           })}
@@ -191,7 +191,7 @@ function AnswerItem({
               {correctChoice ? `, ${correctChoice.text}` : ""}
             </p>
           </div>
-          <p className="mt-3 text-sm leading-6">{question.explanation}</p>
+          <p className="mt-3 break-words text-sm leading-6">{question.explanation}</p>
         </div>
       </CardContent>
     </Card>

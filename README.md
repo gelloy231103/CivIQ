@@ -8,10 +8,11 @@ Login-required Civil Service Exam Professional reviewer for laptop and mobile we
 - Tailwind CSS with shadcn-compatible components
 - Supabase-ready auth, profile, follow, progress, and leaderboard boundaries
 - AES-256 database-layer protection for private profile details
-- Protected AI explanation function stub
+- Protected Gemini AI explanations with cache, quota, and safe fallback behavior
 - Generated Civil Service reviewer question set from imported reviewer content
 - Visual Abstract Reasoning question assets with neutral answer labels
-- Per-question pacing timer using the 190-minute / 170-item Professional exam format
+- Smart quiz sessions: Quick 10, Focused 25, Mock 170, and resumable sessions
+- Year-based answer sheets with answers visible by default
 
 ## Local Setup
 
@@ -35,7 +36,21 @@ For Vercel deployment, add this environment variable in the Vercel project setti
 
 ```bash
 GEMINI_API_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+AI_EXPLANATION_DAILY_LIMIT=10
 ```
+
+`SUPABASE_SERVICE_ROLE_KEY` is server-only. It lets the API cache AI explanations and enforce per-user daily quota. Never expose it through `VITE_` variables.
+
+## Reviewer Import
+
+Drop source reviewers into `reviewers/new`, then inventory and extract supported text with:
+
+```bash
+python scripts/import_reviewer_sources.py reviewers/new
+```
+
+The script writes extracted text and `inventory.json` into `tmp/reviewer-import`. Generated app question data should still be reviewed before being marked verified.
 
 ## Privacy
 

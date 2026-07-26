@@ -12,8 +12,16 @@ type AuthContextValue = {
   signIn: (email: string, password: string) => Promise<string | null>;
   signInWithGoogle: () => Promise<string | null>;
   signUp: (email: string, password: string, displayName: string, username: string) => Promise<string | null>;
+  updateProfile: (updates: ProfileUpdateInput) => Promise<string | null>;
   startPreview: () => void;
   signOut: () => Promise<void>;
+};
+
+export type ProfileUpdateInput = {
+  displayName: string;
+  username: string;
+  avatarUrl?: string;
+  visibility: "friends" | "global";
 };
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -103,6 +111,48 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return formatAuthError(error?.message);
   }, []);
 
+  const updateProfile = useCallback(async (updates: ProfileUpdateInput) => {
+    const normalizedUsername = normalizeUsername(updates.username);
+    const displayName = updates.displayName.trim();
+    const avatarUrl = updates.avatarUrl?.trim();
+
+    if (!displayName) return "Display name is required.";
+    if (normalizedUsername.length < 3) return "Username must be at least 3 characters.";
+
+    if (isPreview) {
+      setProfile((current) =>
+        current
+          ? {
+              ...current,
+              displayName,
+              username: normalizedUsername,
+              avatarUrl: avatarUrl || undefined,
+              visibility: updates.visibility
+            }
+          : current
+      );
+      return null;
+    }
+
+    if (!supabase || !profile) return "Accounts are not connected yet.";
+
+    const { error } = await supabase
+      .from("profiles")
+      .update({
+        username: normalizedUsername,
+        display_name: displayName,
+        avatar_url: avatarUrl || null,
+        visibility: updates.visibility
+      })
+      .eq("id", profile.id);
+
+    if (error) return formatProfileError(error.message);
+
+    const refreshed = await readPrivateProfile();
+    if (refreshed) setProfile(refreshed);
+    return null;
+  }, [isPreview, profile]);
+
   const startPreview = useCallback(() => {
     setIsPreview(true);
     setProfile(previewProfile);
@@ -127,10 +177,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signIn,
       signInWithGoogle,
       signUp,
+      updateProfile,
       startPreview,
       signOut
     }),
-    [isPreview, loading, profile, session, signIn, signInWithGoogle, signOut, signUp, startPreview]
+    [isPreview, loading, profile, session, signIn, signInWithGoogle, signOut, signUp, startPreview, updateProfile]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
@@ -254,5 +305,14 @@ function formatAuthError(message?: string) {
     return "Google sign-in is not enabled yet.";
   }
 
+  return message;
+}
+
+function formatProfileError(message?: string) {
+  if (!message) return null;
+  const normalized = message.toLowerCase();
+  if (normalized.includes("duplicate") || normalized.includes("unique")) {
+    return "That username is already taken.";
+  }
   return message;
 }

@@ -1,20 +1,22 @@
 import { SetupRequired } from "@/components/layout/SetupRequired";
 import { AppShell } from "@/components/layout/AppShell";
+import { lazy, Suspense } from "react";
 import { AuthProvider, useAuth } from "@/lib/auth";
 import { useRouter } from "@/lib/router";
 import { StudyProvider } from "@/lib/study-state";
-import { AnswerReviewPage } from "@/pages/AnswerReviewPage";
-import { BookmarksPage } from "@/pages/BookmarksPage";
-import { DashboardPage } from "@/pages/DashboardPage";
-import { FriendsPage } from "@/pages/FriendsPage";
-import { LeaderboardPage } from "@/pages/LeaderboardPage";
-import { LibraryPage } from "@/pages/LibraryPage";
 import { LoginPage } from "@/pages/LoginPage";
-import { MistakesPage } from "@/pages/MistakesPage";
-import { ProfilePage } from "@/pages/ProfilePage";
-import { ProgressPage } from "@/pages/ProgressPage";
-import { QuizPage } from "@/pages/QuizPage";
-import { ReviewPage } from "@/pages/ReviewPage";
+
+const AnswerReviewPage = lazy(() => import("@/pages/AnswerReviewPage").then((module) => ({ default: module.AnswerReviewPage })));
+const BookmarksPage = lazy(() => import("@/pages/BookmarksPage").then((module) => ({ default: module.BookmarksPage })));
+const DashboardPage = lazy(() => import("@/pages/DashboardPage").then((module) => ({ default: module.DashboardPage })));
+const FriendsPage = lazy(() => import("@/pages/FriendsPage").then((module) => ({ default: module.FriendsPage })));
+const LeaderboardPage = lazy(() => import("@/pages/LeaderboardPage").then((module) => ({ default: module.LeaderboardPage })));
+const LibraryPage = lazy(() => import("@/pages/LibraryPage").then((module) => ({ default: module.LibraryPage })));
+const MistakesPage = lazy(() => import("@/pages/MistakesPage").then((module) => ({ default: module.MistakesPage })));
+const ProfilePage = lazy(() => import("@/pages/ProfilePage").then((module) => ({ default: module.ProfilePage })));
+const ProgressPage = lazy(() => import("@/pages/ProgressPage").then((module) => ({ default: module.ProgressPage })));
+const QuizPage = lazy(() => import("@/pages/QuizPage").then((module) => ({ default: module.QuizPage })));
+const ReviewPage = lazy(() => import("@/pages/ReviewPage").then((module) => ({ default: module.ReviewPage })));
 
 export default function App() {
   return (
@@ -47,9 +49,19 @@ function AppGate() {
   return (
     <StudyProvider>
       <AppShell>
-        {renderPage(path)}
+        <Suspense fallback={<PageLoading />}>
+          {renderPage(path)}
+        </Suspense>
       </AppShell>
     </StudyProvider>
+  );
+}
+
+function PageLoading() {
+  return (
+    <div className="rounded-md border bg-card px-5 py-4 text-sm font-bold text-muted-foreground shadow-soft">
+      Loading page
+    </div>
   );
 }
 

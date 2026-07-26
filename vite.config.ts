@@ -12,6 +12,16 @@ export default defineConfig(({ mode }) => {
       alias: {
         "@": path.resolve(__dirname, "./src")
       }
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes("/src/data/professional/")) return "question-bank";
+            if (id.includes("/node_modules/")) return "vendor";
+          }
+        }
+      }
     }
   };
 });
