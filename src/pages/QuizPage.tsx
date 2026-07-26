@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { CheckCircle2, RotateCcw } from "lucide-react";
+import { QuestionTimer } from "@/components/reviewer/QuestionTimer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { verifiedProfessionalQuestions } from "@/data/professional";
+import { QUESTION_TARGET_SECONDS } from "@/lib/exam-timing";
 import { Link } from "@/lib/router";
 import { useStudy } from "@/lib/study-state";
 import { cn, formatPercent } from "@/lib/utils";
@@ -90,7 +92,7 @@ export function QuizPage() {
       <div>
         <h1 className="text-3xl font-extrabold">Quiz</h1>
         <p className="mt-1 text-sm font-semibold text-muted-foreground">
-          Untimed practice - {totalQuestions} questions
+          Paced practice - {QUESTION_TARGET_SECONDS}s target per question
         </p>
       </div>
       <Progress value={(answeredCount / totalQuestions) * 100} />
@@ -102,6 +104,7 @@ export function QuizPage() {
               {index + 1} / {totalQuestions}
             </span>
           </div>
+          <QuestionTimer resetKey={question.id} paused={Boolean(currentAnswer)} />
           <CardTitle className="pt-3 text-xl leading-8">{question.question}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">

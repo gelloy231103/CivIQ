@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { QuestionTimer } from "@/components/reviewer/QuestionTimer";
 import { requestAiExplanation } from "@/lib/ai-explanations";
 import type { Question } from "@/lib/question-model";
 import { getChoice } from "@/lib/question-model";
@@ -65,6 +66,7 @@ export function ReviewCard({
             {index + 1} / {total}
           </span>
         </div>
+        <QuestionTimer resetKey={question.id} paused={answered} />
         <CardTitle className="pt-3 text-xl leading-8">{question.question}</CardTitle>
       </CardHeader>
       <CardContent className="grid gap-3 pt-5">

@@ -9,6 +9,7 @@ Login-required Civil Service Exam Professional reviewer for laptop and mobile we
 - Supabase-ready auth, profile, follow, progress, and leaderboard boundaries
 - Protected AI explanation function stub
 - Generated Civil Service reviewer question set from imported reviewer content
+- Per-question pacing timer using the 190-minute / 170-item Professional exam format
 
 ## Local Setup
 
