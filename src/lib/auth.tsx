@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
-import type { Session } from "@supabase/supabase-js";
+import type { Session, User } from "@supabase/supabase-js";
 import type { Profile } from "@/lib/question-model";
 import { isSupabaseConfigured, supabase } from "@/lib/supabase";
 
@@ -38,11 +38,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     let mounted = true;
-    supabase.auth.getSession().then(({ data }) => {
+    supabase.auth.getSession().then(async ({ data }) => {
       if (!mounted) return;
       setSession(data.session);
       if (data.session?.user) {
-        setProfile(profileFromUser(data.session.user.id, data.session.user.email ?? ""));
+        setProfile(await ensureProfile(data.session.user));
       }
       setLoading(false);
     });
@@ -51,7 +51,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       data: { subscription }
     } = supabase.auth.onAuthStateChange((_event, nextSession) => {
       setSession(nextSession);
-      setProfile(nextSession?.user ? profileFromUser(nextSession.user.id, nextSession.user.email ?? "") : null);
+      if (!nextSession?.user) {
+        setProfile(null);
+        return;
+      }
+      ensureProfile(nextSession.user).then(setProfile).catch(() => {
+        setProfile(profileFromUser(nextSession.user));
+      });
     });
 
     return () => {
@@ -121,13 +127,54 @@ export function useAuth() {
   return context;
 }
 
-function profileFromUser(userId: string, email: string): Profile {
-  const fallbackName = email.split("@")[0] || "CivIQ User";
+async function ensureProfile(user: User): Promise<Profile> {
+  if (!supabase) return profileFromUser(user);
+
+  const { data: existing } = await supabase.from("profiles").select("*").eq("id", user.id).maybeSingle();
+  if (existing) return profileFromRow(existing);
+
+  const fallback = profileFromUser(user);
+  const { data: inserted, error } = await supabase
+    .from("profiles")
+    .insert({
+      id: fallback.id,
+      username: fallback.username,
+      display_name: fallback.displayName,
+      avatar_url: fallback.avatarUrl ?? null,
+      visibility: fallback.visibility
+    })
+    .select("*")
+    .single();
+
+  if (error || !inserted) return fallback;
+  return profileFromRow(inserted);
+}
+
+function profileFromUser(user: User): Profile {
+  const metadata = user.user_metadata ?? {};
+  const fallbackName = user.email?.split("@")[0] || "CivIQ User";
+  const username = String(metadata.username || fallbackName)
+    .toLowerCase()
+    .replace(/[^a-z0-9_]/g, "_")
+    .replace(/^_+|_+$/g, "")
+    .slice(0, 24);
+
   return {
-    id: userId,
-    username: fallbackName.toLowerCase().replace(/[^a-z0-9_]/g, "_"),
-    displayName: fallbackName,
+    id: user.id,
+    username: username || `user_${user.id.slice(0, 8)}`,
+    displayName: String(metadata.display_name || fallbackName),
     visibility: "friends",
     joinedAt: new Date().toISOString()
+  };
+}
+
+function profileFromRow(row: Record<string, unknown>): Profile {
+  return {
+    id: String(row.id),
+    username: String(row.username),
+    displayName: String(row.display_name),
+    avatarUrl: row.avatar_url ? String(row.avatar_url) : undefined,
+    visibility: row.visibility === "global" ? "global" : "friends",
+    joinedAt: String(row.created_at)
   };
 }

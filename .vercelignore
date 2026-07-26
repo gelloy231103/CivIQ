@@ -1,0 +1,11 @@
+reviewers/
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+dev-server*.log
+dev-server*.err.log
+.git/
+.vscode/
+.idea/

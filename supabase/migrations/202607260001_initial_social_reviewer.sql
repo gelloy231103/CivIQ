@@ -80,6 +80,21 @@ alter table public.leaderboard_stats enable row level security;
 alter table public.ai_explanations enable row level security;
 alter table public.ai_usage enable row level security;
 
+drop policy if exists "profiles are readable" on public.profiles;
+drop policy if exists "users update own profile" on public.profiles;
+drop policy if exists "users insert own profile" on public.profiles;
+drop policy if exists "users read own attempts" on public.attempts;
+drop policy if exists "users insert own attempts" on public.attempts;
+drop policy if exists "users manage own progress" on public.question_progress;
+drop policy if exists "users manage own bookmarks" on public.bookmarks;
+drop policy if exists "users manage own follows" on public.follows;
+drop policy if exists "leaderboard stats readable" on public.leaderboard_stats;
+drop policy if exists "users manage own leaderboard stats" on public.leaderboard_stats;
+drop policy if exists "ai explanations readable by authenticated users" on public.ai_explanations;
+drop policy if exists "users read own ai usage" on public.ai_usage;
+drop policy if exists "users insert own ai usage" on public.ai_usage;
+drop policy if exists "users update own ai usage" on public.ai_usage;
+
 create policy "profiles are readable" on public.profiles for select using (true);
 create policy "users update own profile" on public.profiles for update using (auth.uid() = id);
 create policy "users insert own profile" on public.profiles for insert with check (auth.uid() = id);
