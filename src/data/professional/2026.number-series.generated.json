@@ -1,0 +1,2851 @@
+[
+  {
+    "id": "cse-pro-2026-number-series-0001",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 1",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 5, 25, 7,______, 9, 19",
+    "choices": [
+      {
+        "id": "a",
+        "text": "23"
+      },
+      {
+        "id": "b",
+        "text": "22"
+      },
+      {
+        "id": "c",
+        "text": "25"
+      },
+      {
+        "id": "d",
+        "text": "32"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0002",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 1",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 100, 50, 52, 26, 28,______",
+    "choices": [
+      {
+        "id": "a",
+        "text": "30"
+      },
+      {
+        "id": "b",
+        "text": "32"
+      },
+      {
+        "id": "c",
+        "text": "14"
+      },
+      {
+        "id": "d",
+        "text": "16"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0003",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 1",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 980, 392, 156.8,______, 25.088, 10.0352",
+    "choices": [
+      {
+        "id": "a",
+        "text": "62.72"
+      },
+      {
+        "id": "b",
+        "text": "63.85"
+      },
+      {
+        "id": "c",
+        "text": "65.04"
+      },
+      {
+        "id": "d",
+        "text": "60.28"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The reviewer answer marker lists option A as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0004",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 1",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 113, 225, 449,______, 1793",
+    "choices": [
+      {
+        "id": "a",
+        "text": "789"
+      },
+      {
+        "id": "b",
+        "text": "786"
+      },
+      {
+        "id": "c",
+        "text": "897"
+      },
+      {
+        "id": "d",
+        "text": "987"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0005",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 1",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 5, 9, 21, 37, 81,______",
+    "choices": [
+      {
+        "id": "a",
+        "text": "163"
+      },
+      {
+        "id": "b",
+        "text": "153"
+      },
+      {
+        "id": "c",
+        "text": "181"
+      },
+      {
+        "id": "d",
+        "text": "203"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0006",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 2",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 2, 10, 30, 68,______",
+    "choices": [
+      {
+        "id": "a",
+        "text": "126"
+      },
+      {
+        "id": "b",
+        "text": "130"
+      },
+      {
+        "id": "c",
+        "text": "140"
+      },
+      {
+        "id": "d",
+        "text": "150"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0007",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 2",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 45, 46, 70, 141,______, 1061.5",
+    "choices": [
+      {
+        "id": "a",
+        "text": "353"
+      },
+      {
+        "id": "b",
+        "text": "353.5"
+      },
+      {
+        "id": "c",
+        "text": "352.5"
+      },
+      {
+        "id": "d",
+        "text": "352"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0008",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 2",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 33, 321, 465, 537, 573______",
+    "choices": [
+      {
+        "id": "a",
+        "text": "600"
+      },
+      {
+        "id": "b",
+        "text": "591"
+      },
+      {
+        "id": "c",
+        "text": "585"
+      },
+      {
+        "id": "d",
+        "text": "498"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0009",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 2",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 2, 9,______, 105, 436, 2195",
+    "choices": [
+      {
+        "id": "a",
+        "text": "25"
+      },
+      {
+        "id": "b",
+        "text": "27"
+      },
+      {
+        "id": "c",
+        "text": "30"
+      },
+      {
+        "id": "d",
+        "text": "33"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0010",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 2",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 4 6 14 44? 892",
+    "choices": [
+      {
+        "id": "a",
+        "text": "176"
+      },
+      {
+        "id": "b",
+        "text": "172"
+      },
+      {
+        "id": "c",
+        "text": "178"
+      },
+      {
+        "id": "d",
+        "text": "1821"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0011",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 3",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 126 64 34 20 14?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "12"
+      },
+      {
+        "id": "b",
+        "text": "14"
+      },
+      {
+        "id": "c",
+        "text": "16"
+      },
+      {
+        "id": "d",
+        "text": "18"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The reviewer answer marker lists option A as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0012",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 3",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 16 8 12 30? 472.5",
+    "choices": [
+      {
+        "id": "a",
+        "text": "100"
+      },
+      {
+        "id": "b",
+        "text": "105"
+      },
+      {
+        "id": "c",
+        "text": "205"
+      },
+      {
+        "id": "d",
+        "text": "300"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0013",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 3",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 25 34 30 39 35?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "45"
+      },
+      {
+        "id": "b",
+        "text": "44"
+      },
+      {
+        "id": "c",
+        "text": "46"
+      },
+      {
+        "id": "d",
+        "text": "50"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0014",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 4",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 10, 11, 13, 21, 69,?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "384"
+      },
+      {
+        "id": "b",
+        "text": "490"
+      },
+      {
+        "id": "c",
+        "text": "453"
+      },
+      {
+        "id": "d",
+        "text": "390"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0015",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 4",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 5, ______, 8, 56, 7, 63, 9?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "45"
+      },
+      {
+        "id": "b",
+        "text": "35"
+      },
+      {
+        "id": "c",
+        "text": "40"
+      },
+      {
+        "id": "d",
+        "text": "42"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0016",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 4",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 32, ______, 92, 134, 184?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "55"
+      },
+      {
+        "id": "b",
+        "text": "38"
+      },
+      {
+        "id": "c",
+        "text": "45"
+      },
+      {
+        "id": "d",
+        "text": "58"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0017",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 4",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 11, 16, 26, ______, 86?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "46"
+      },
+      {
+        "id": "b",
+        "text": "56"
+      },
+      {
+        "id": "c",
+        "text": "76"
+      },
+      {
+        "id": "d",
+        "text": "86"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The reviewer answer marker lists option A as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0018",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 4",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 198, 194, 185, 169, ______?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "154"
+      },
+      {
+        "id": "b",
+        "text": "165"
+      },
+      {
+        "id": "c",
+        "text": "144"
+      },
+      {
+        "id": "d",
+        "text": "134"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0019",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 5",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 9050, 5675, 3478, 2147, ______?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "3478"
+      },
+      {
+        "id": "b",
+        "text": "1418"
+      },
+      {
+        "id": "c",
+        "text": "2428"
+      },
+      {
+        "id": "d",
+        "text": "3678"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0020",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 5",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 5, 17, 37, 65, ______, 145.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "95"
+      },
+      {
+        "id": "b",
+        "text": "99"
+      },
+      {
+        "id": "c",
+        "text": "97"
+      },
+      {
+        "id": "d",
+        "text": "101"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0021",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 5",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 95, 115.5, 138, ______, 189.",
+    "choices": [
+      {
+        "id": "a",
+        "text": "154.5"
+      },
+      {
+        "id": "b",
+        "text": "164.5"
+      },
+      {
+        "id": "c",
+        "text": "162.5"
+      },
+      {
+        "id": "d",
+        "text": "166.5"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0022",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 5",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 3, 4.5, 9, 22.5, 67.5, ______, 945",
+    "choices": [
+      {
+        "id": "a",
+        "text": "265.25"
+      },
+      {
+        "id": "b",
+        "text": "236.25"
+      },
+      {
+        "id": "c",
+        "text": "225.36"
+      },
+      {
+        "id": "d",
+        "text": "150"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0023",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 5",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 8544, 1420, 280, ______, 18, 5",
+    "choices": [
+      {
+        "id": "a",
+        "text": "33"
+      },
+      {
+        "id": "b",
+        "text": "44"
+      },
+      {
+        "id": "c",
+        "text": "56"
+      },
+      {
+        "id": "d",
+        "text": "66"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0024",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 5",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 812, 398, ______, 90, 40, 16",
+    "choices": [
+      {
+        "id": "a",
+        "text": "192"
+      },
+      {
+        "id": "b",
+        "text": "182"
+      },
+      {
+        "id": "c",
+        "text": "172"
+      },
+      {
+        "id": "d",
+        "text": "162"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The reviewer answer marker lists option A as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0025",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 6",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 6072, ______, 200, 48, 14, 5, 3",
+    "choices": [
+      {
+        "id": "a",
+        "text": "1008"
+      },
+      {
+        "id": "b",
+        "text": "1010"
+      },
+      {
+        "id": "c",
+        "text": "1001"
+      },
+      {
+        "id": "d",
+        "text": "1005"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0026",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 6",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 200, 165, 148, ______, 104, 77, 68",
+    "choices": [
+      {
+        "id": "a",
+        "text": "115"
+      },
+      {
+        "id": "b",
+        "text": "116"
+      },
+      {
+        "id": "c",
+        "text": "117"
+      },
+      {
+        "id": "d",
+        "text": "118"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0027",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 6",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 445, 221, 109, ______, 25, 11, 4",
+    "choices": [
+      {
+        "id": "a",
+        "text": "46"
+      },
+      {
+        "id": "b",
+        "text": "57"
+      },
+      {
+        "id": "c",
+        "text": "53"
+      },
+      {
+        "id": "d",
+        "text": "59"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0028",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 6",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: -1/2, 0, 1/2, ______, 3/2, 2",
+    "choices": [
+      {
+        "id": "a",
+        "text": "1/2"
+      },
+      {
+        "id": "b",
+        "text": "2/3"
+      },
+      {
+        "id": "c",
+        "text": "3/4"
+      },
+      {
+        "id": "d",
+        "text": "1"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0029",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 7",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 3, 9, 41, 113, ______, 577",
+    "choices": [
+      {
+        "id": "a",
+        "text": "260"
+      },
+      {
+        "id": "b",
+        "text": "265"
+      },
+      {
+        "id": "c",
+        "text": "270"
+      },
+      {
+        "id": "d",
+        "text": "275"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0030",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 7",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 7, 15, ______, 106, 231",
+    "choices": [
+      {
+        "id": "a",
+        "text": "32"
+      },
+      {
+        "id": "b",
+        "text": "45"
+      },
+      {
+        "id": "c",
+        "text": "42"
+      },
+      {
+        "id": "d",
+        "text": "64"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0031",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 7",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 8, ______, 41, 74, 118",
+    "choices": [
+      {
+        "id": "a",
+        "text": "29"
+      },
+      {
+        "id": "b",
+        "text": "15"
+      },
+      {
+        "id": "c",
+        "text": "22"
+      },
+      {
+        "id": "d",
+        "text": "19"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0032",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 7",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 13, ______, 15, 21, 33",
+    "choices": [
+      {
+        "id": "a",
+        "text": "12"
+      },
+      {
+        "id": "b",
+        "text": "11"
+      },
+      {
+        "id": "c",
+        "text": "13"
+      },
+      {
+        "id": "d",
+        "text": "14"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0033",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 7",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 7, ______, 17, 42, 91",
+    "choices": [
+      {
+        "id": "a",
+        "text": "8"
+      },
+      {
+        "id": "b",
+        "text": "7"
+      },
+      {
+        "id": "c",
+        "text": "9"
+      },
+      {
+        "id": "d",
+        "text": "12"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The reviewer answer marker lists option A as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0034",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 8",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: ______, 11, 24, 75, 304",
+    "choices": [
+      {
+        "id": "a",
+        "text": "8"
+      },
+      {
+        "id": "b",
+        "text": "5"
+      },
+      {
+        "id": "c",
+        "text": "10"
+      },
+      {
+        "id": "d",
+        "text": "9"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0035",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 8",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 2, 9, ______, 65, 126",
+    "choices": [
+      {
+        "id": "a",
+        "text": "25"
+      },
+      {
+        "id": "b",
+        "text": "22"
+      },
+      {
+        "id": "c",
+        "text": "28"
+      },
+      {
+        "id": "d",
+        "text": "30"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0036",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 8",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 0, ______, 68, 222, 520",
+    "choices": [
+      {
+        "id": "a",
+        "text": "3"
+      },
+      {
+        "id": "b",
+        "text": "6"
+      },
+      {
+        "id": "c",
+        "text": "9"
+      },
+      {
+        "id": "d",
+        "text": "10"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0037",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 8",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 3, ______, 12, 38, 154",
+    "choices": [
+      {
+        "id": "a",
+        "text": "9"
+      },
+      {
+        "id": "b",
+        "text": "12"
+      },
+      {
+        "id": "c",
+        "text": "4"
+      },
+      {
+        "id": "d",
+        "text": "5"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0038",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 8",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 9, 22, 24, 37, ______, 52",
+    "choices": [
+      {
+        "id": "a",
+        "text": "39"
+      },
+      {
+        "id": "b",
+        "text": "42"
+      },
+      {
+        "id": "c",
+        "text": "45"
+      },
+      {
+        "id": "d",
+        "text": "50"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The reviewer answer marker lists option A as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0039",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 9",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 4, 4, ______, 12, 30",
+    "choices": [
+      {
+        "id": "a",
+        "text": "5"
+      },
+      {
+        "id": "b",
+        "text": "6"
+      },
+      {
+        "id": "c",
+        "text": "8"
+      },
+      {
+        "id": "d",
+        "text": "10"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0040",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 9",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 2348, 3437, 4346, ______, 6344, 7433",
+    "choices": [
+      {
+        "id": "a",
+        "text": "5425"
+      },
+      {
+        "id": "b",
+        "text": "5436"
+      },
+      {
+        "id": "c",
+        "text": "5456"
+      },
+      {
+        "id": "d",
+        "text": "5435"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0041",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 9",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 87, 86, 82, 73, 57, 32, ______",
+    "choices": [
+      {
+        "id": "a",
+        "text": "-5"
+      },
+      {
+        "id": "b",
+        "text": "-4"
+      },
+      {
+        "id": "c",
+        "text": "6"
+      },
+      {
+        "id": "d",
+        "text": "10"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0042",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 9",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 12, 20, 19, 26, ______, 31, 30",
+    "choices": [
+      {
+        "id": "a",
+        "text": "24"
+      },
+      {
+        "id": "b",
+        "text": "26"
+      },
+      {
+        "id": "c",
+        "text": "25"
+      },
+      {
+        "id": "d",
+        "text": "35"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0043",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 9",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 4, 8, 11, 22, 18, ______, 25, 50",
+    "choices": [
+      {
+        "id": "a",
+        "text": "36"
+      },
+      {
+        "id": "b",
+        "text": "35"
+      },
+      {
+        "id": "c",
+        "text": "46"
+      },
+      {
+        "id": "d",
+        "text": "56"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The reviewer answer marker lists option A as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0044",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 10",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 9, 7, 64, 6, 3, ______, 1, 8, 9",
+    "choices": [
+      {
+        "id": "a",
+        "text": "28"
+      },
+      {
+        "id": "b",
+        "text": "16"
+      },
+      {
+        "id": "c",
+        "text": "18"
+      },
+      {
+        "id": "d",
+        "text": "19"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0045",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 10",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 51975, 9450, 2100, ______, 240, 160, 320",
+    "choices": [
+      {
+        "id": "a",
+        "text": "600"
+      },
+      {
+        "id": "b",
+        "text": "800"
+      },
+      {
+        "id": "c",
+        "text": "900"
+      },
+      {
+        "id": "d",
+        "text": "1000"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The reviewer answer marker lists option A as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0046",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 10",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 2, 9, 30, 105, 436, 2195, ______",
+    "choices": [
+      {
+        "id": "a",
+        "text": "13184"
+      },
+      {
+        "id": "b",
+        "text": "13186"
+      },
+      {
+        "id": "c",
+        "text": "13175"
+      },
+      {
+        "id": "d",
+        "text": "13182"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0047",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 10",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 4, 2.5, 3.5, 6.75, 15.5, 41.25, ______",
+    "choices": [
+      {
+        "id": "a",
+        "text": "126.75"
+      },
+      {
+        "id": "b",
+        "text": "136.75"
+      },
+      {
+        "id": "c",
+        "text": "166.75"
+      },
+      {
+        "id": "d",
+        "text": "175.75"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The reviewer answer marker lists option A as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0048",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 11",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 1, 5, 9, 17, 25, ______, 49",
+    "choices": [
+      {
+        "id": "a",
+        "text": "35"
+      },
+      {
+        "id": "b",
+        "text": "45"
+      },
+      {
+        "id": "c",
+        "text": "37"
+      },
+      {
+        "id": "d",
+        "text": "42"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0049",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 11",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 2, 10, 30, ______, 130",
+    "choices": [
+      {
+        "id": "a",
+        "text": "64"
+      },
+      {
+        "id": "b",
+        "text": "65"
+      },
+      {
+        "id": "c",
+        "text": "68"
+      },
+      {
+        "id": "d",
+        "text": "69"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0050",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 11",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 3, 12,______,6912",
+    "choices": [
+      {
+        "id": "a",
+        "text": "192"
+      },
+      {
+        "id": "b",
+        "text": "194"
+      },
+      {
+        "id": "c",
+        "text": "196"
+      },
+      {
+        "id": "d",
+        "text": "212"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The reviewer answer marker lists option A as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0051",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 11",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: ______, 108, 18, 6",
+    "choices": [
+      {
+        "id": "a",
+        "text": "960"
+      },
+      {
+        "id": "b",
+        "text": "900"
+      },
+      {
+        "id": "c",
+        "text": "918"
+      },
+      {
+        "id": "d",
+        "text": "972"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0052",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 12",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 6, ______ 18, 56, 226",
+    "choices": [
+      {
+        "id": "a",
+        "text": "10"
+      },
+      {
+        "id": "b",
+        "text": "12"
+      },
+      {
+        "id": "c",
+        "text": "8"
+      },
+      {
+        "id": "d",
+        "text": "15"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0053",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 12",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 8, ______,218, 515",
+    "choices": [
+      {
+        "id": "a",
+        "text": "64"
+      },
+      {
+        "id": "b",
+        "text": "66"
+      },
+      {
+        "id": "c",
+        "text": "65"
+      },
+      {
+        "id": "d",
+        "text": "68"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0054",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 12",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 37.5, ______, 450, 900",
+    "choices": [
+      {
+        "id": "a",
+        "text": "125"
+      },
+      {
+        "id": "b",
+        "text": "150"
+      },
+      {
+        "id": "c",
+        "text": "200"
+      },
+      {
+        "id": "d",
+        "text": "250"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0055",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 12",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: ______, 16, 24, 48",
+    "choices": [
+      {
+        "id": "a",
+        "text": "9"
+      },
+      {
+        "id": "b",
+        "text": "8"
+      },
+      {
+        "id": "c",
+        "text": "16"
+      },
+      {
+        "id": "d",
+        "text": "10"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0056",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 13",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 50, 40, ______, 14",
+    "choices": [
+      {
+        "id": "a",
+        "text": "30"
+      },
+      {
+        "id": "b",
+        "text": "28"
+      },
+      {
+        "id": "c",
+        "text": "20"
+      },
+      {
+        "id": "d",
+        "text": "60"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0057",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 13",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: ______, 7, 16, 41",
+    "choices": [
+      {
+        "id": "a",
+        "text": "3"
+      },
+      {
+        "id": "b",
+        "text": "5"
+      },
+      {
+        "id": "c",
+        "text": "6"
+      },
+      {
+        "id": "d",
+        "text": "8"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0058",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 13",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 2, 10, -6, ______",
+    "choices": [
+      {
+        "id": "a",
+        "text": "12"
+      },
+      {
+        "id": "b",
+        "text": "10"
+      },
+      {
+        "id": "c",
+        "text": "28"
+      },
+      {
+        "id": "d",
+        "text": "18"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0059",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 14",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 3, 5, 14, ______, 107",
+    "choices": [
+      {
+        "id": "a",
+        "text": "42"
+      },
+      {
+        "id": "b",
+        "text": "28"
+      },
+      {
+        "id": "c",
+        "text": "30"
+      },
+      {
+        "id": "d",
+        "text": "16"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The reviewer answer marker lists option A as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0060",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 14",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 5, ______, 10, 30, 120",
+    "choices": [
+      {
+        "id": "a",
+        "text": "4"
+      },
+      {
+        "id": "b",
+        "text": "5"
+      },
+      {
+        "id": "c",
+        "text": "6"
+      },
+      {
+        "id": "d",
+        "text": "10"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0061",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 14",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: ______, 11, 20, 45, 94",
+    "choices": [
+      {
+        "id": "a",
+        "text": "5"
+      },
+      {
+        "id": "b",
+        "text": "10"
+      },
+      {
+        "id": "c",
+        "text": "8"
+      },
+      {
+        "id": "d",
+        "text": "6"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0062",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 14",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: ______, 85, 185, 235, 435",
+    "choices": [
+      {
+        "id": "a",
+        "text": "25"
+      },
+      {
+        "id": "b",
+        "text": "20"
+      },
+      {
+        "id": "c",
+        "text": "35"
+      },
+      {
+        "id": "d",
+        "text": "10"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0063",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 14",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 10, ______, 64, 129, 388",
+    "choices": [
+      {
+        "id": "a",
+        "text": "18"
+      },
+      {
+        "id": "b",
+        "text": "21"
+      },
+      {
+        "id": "c",
+        "text": "15"
+      },
+      {
+        "id": "d",
+        "text": "30"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0064",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 15",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 1,______, 24, 528, 16896",
+    "choices": [
+      {
+        "id": "a",
+        "text": "2"
+      },
+      {
+        "id": "b",
+        "text": "8"
+      },
+      {
+        "id": "c",
+        "text": "5"
+      },
+      {
+        "id": "d",
+        "text": "10"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The reviewer answer marker lists option A as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0065",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 15",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 5, ______, 6, 15, 56",
+    "choices": [
+      {
+        "id": "a",
+        "text": "2"
+      },
+      {
+        "id": "b",
+        "text": "3"
+      },
+      {
+        "id": "c",
+        "text": "4"
+      },
+      {
+        "id": "d",
+        "text": "1"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0066",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 15",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 5, ______, 21, 37, 81",
+    "choices": [
+      {
+        "id": "a",
+        "text": "7"
+      },
+      {
+        "id": "b",
+        "text": "9"
+      },
+      {
+        "id": "c",
+        "text": "10"
+      },
+      {
+        "id": "d",
+        "text": "15"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0067",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 15",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 6072, ______, 200, 48, 14",
+    "choices": [
+      {
+        "id": "a",
+        "text": "1010"
+      },
+      {
+        "id": "b",
+        "text": "1000"
+      },
+      {
+        "id": "c",
+        "text": "1072"
+      },
+      {
+        "id": "d",
+        "text": "985"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The reviewer answer marker lists option A as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0068",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 15",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 3, 3, 4.5, ______, 22.5, 67.5?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "13.5"
+      },
+      {
+        "id": "b",
+        "text": "8.5"
+      },
+      {
+        "id": "c",
+        "text": "9.0"
+      },
+      {
+        "id": "d",
+        "text": "10.5"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0069",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 16",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 7200, 3600, 1200, ______, 60, 10?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "200"
+      },
+      {
+        "id": "b",
+        "text": "250"
+      },
+      {
+        "id": "c",
+        "text": "350"
+      },
+      {
+        "id": "d",
+        "text": "300"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0070",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 16",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: ______, 21, 43, 87, 175?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "8"
+      },
+      {
+        "id": "b",
+        "text": "5"
+      },
+      {
+        "id": "c",
+        "text": "9"
+      },
+      {
+        "id": "d",
+        "text": "10"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0071",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 16",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 5, 8, 19, ______, 243?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "50"
+      },
+      {
+        "id": "b",
+        "text": "60"
+      },
+      {
+        "id": "c",
+        "text": "70"
+      },
+      {
+        "id": "d",
+        "text": "90"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0072",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 16",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 45, ______, 184, 371, 746?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "75"
+      },
+      {
+        "id": "b",
+        "text": "60"
+      },
+      {
+        "id": "c",
+        "text": "91"
+      },
+      {
+        "id": "d",
+        "text": "124"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0073",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 17",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 15, 27, 51, ______, 195?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "99"
+      },
+      {
+        "id": "b",
+        "text": "100"
+      },
+      {
+        "id": "c",
+        "text": "97"
+      },
+      {
+        "id": "d",
+        "text": "95"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "a",
+    "explanation": "The reviewer answer marker lists option A as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0074",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 17",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: ______, 23, 44, 85, 166?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "8"
+      },
+      {
+        "id": "b",
+        "text": "12"
+      },
+      {
+        "id": "c",
+        "text": "11"
+      },
+      {
+        "id": "d",
+        "text": "10"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0075",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 17",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: ______, 98, 292, 1166, 5828?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "45"
+      },
+      {
+        "id": "b",
+        "text": "50"
+      },
+      {
+        "id": "c",
+        "text": "55"
+      },
+      {
+        "id": "d",
+        "text": "10"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "b",
+    "explanation": "The reviewer answer marker lists option B as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0076",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 17",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: 16, ______, 24, 12, 36?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "20"
+      },
+      {
+        "id": "b",
+        "text": "18"
+      },
+      {
+        "id": "c",
+        "text": "19"
+      },
+      {
+        "id": "d",
+        "text": "8"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "d",
+    "explanation": "The reviewer answer marker lists option D as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  },
+  {
+    "id": "cse-pro-2026-number-series-0077",
+    "examLevel": "professional",
+    "year": 2026,
+    "source": "Civil Service Reviewer - Number Series, page 17",
+    "topic": "Numerical Reasoning",
+    "question": "Find the missing number in the series: ______, 9, 25, 49, 81?",
+    "choices": [
+      {
+        "id": "a",
+        "text": "2"
+      },
+      {
+        "id": "b",
+        "text": "4"
+      },
+      {
+        "id": "c",
+        "text": "1"
+      },
+      {
+        "id": "d",
+        "text": "8"
+      },
+      {
+        "id": "e",
+        "text": "None of the above"
+      }
+    ],
+    "answer": "c",
+    "explanation": "The reviewer answer marker lists option C as correct for this number series item.",
+    "feedback": {
+      "correct": "Correct. Your answer matches the answer marker.",
+      "incorrect": "Review the number pattern and compare it with the marked option."
+    },
+    "status": "verified"
+  }
+]

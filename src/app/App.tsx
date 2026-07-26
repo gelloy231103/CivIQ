@@ -53,15 +53,19 @@ function AppGate() {
 }
 
 function renderPage(path: string) {
+  if (path === "/review" || path.startsWith("/review/")) {
+    return <ReviewPage />;
+  }
+
+  if (path === "/quiz" || path.startsWith("/quiz/")) {
+    return <QuizPage />;
+  }
+
   switch (path) {
     case "/":
       return <DashboardPage />;
     case "/library":
       return <LibraryPage />;
-    case "/review":
-      return <ReviewPage />;
-    case "/quiz":
-      return <QuizPage />;
     case "/mistakes":
       return <MistakesPage />;
     case "/bookmarks":

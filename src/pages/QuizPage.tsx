@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { CheckCircle2, RotateCcw } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { CheckCircle2, Library, RotateCcw } from "lucide-react";
 import { QuestionTimer } from "@/components/reviewer/QuestionTimer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -7,24 +7,46 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { verifiedProfessionalQuestions } from "@/data/professional";
 import { QUESTION_TARGET_SECONDS } from "@/lib/exam-timing";
-import { Link } from "@/lib/router";
+import { Link, useRouter } from "@/lib/router";
+import {
+  filterQuestionsForSelection,
+  parseStudySelection,
+  selectionKey,
+  studyPath,
+  studySelectionDescription,
+  studySelectionTitle
+} from "@/lib/study-selection";
 import { useStudy } from "@/lib/study-state";
 import { cn, formatPercent } from "@/lib/utils";
 
 export function QuizPage() {
   const { answerQuestion } = useStudy();
+  const { path } = useRouter();
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [finished, setFinished] = useState(false);
-  const question = verifiedProfessionalQuestions[index];
+  const selection = useMemo(() => parseStudySelection(path), [path]);
+  const currentSelectionKey = selectionKey(selection);
+  const questions = useMemo(
+    () => filterQuestionsForSelection(verifiedProfessionalQuestions, selection),
+    [selection.topic, selection.year]
+  );
+  const question = questions[index];
   const answeredCount = Object.keys(answers).length;
-  const correctCount = verifiedProfessionalQuestions.filter((item) => answers[item.id] === item.answer).length;
+  const correctCount = questions.filter((item) => answers[item.id] === item.answer).length;
   const missedCount = answeredCount - correctCount;
-  const totalQuestions = verifiedProfessionalQuestions.length;
+  const totalQuestions = questions.length;
   const currentAnswer = question ? answers[question.id] : undefined;
   const isLastQuestion = index === totalQuestions - 1;
 
+  useEffect(() => {
+    setIndex(0);
+    setAnswers({});
+    setFinished(false);
+  }, [currentSelectionKey]);
+
   function choose(choiceId: string) {
+    if (!question) return;
     if (answers[question.id]) return;
     setAnswers((current) => ({ ...current, [question.id]: choiceId }));
     answerQuestion(question.id, choiceId, "quiz");
@@ -43,6 +65,29 @@ export function QuizPage() {
     setIndex(0);
     setAnswers({});
     setFinished(false);
+  }
+
+  if (!question) {
+    return (
+      <div className="mx-auto max-w-2xl">
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-2xl">No questions found</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="text-sm font-semibold leading-6 text-muted-foreground">
+              This quiz set is not available yet. Choose another year or topic from the Library.
+            </p>
+            <Button asChild>
+              <Link to="/library">
+                <Library aria-hidden="true" />
+                Open Library
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
   }
 
   if (finished) {
@@ -74,7 +119,7 @@ export function QuizPage() {
                 </Button>
               ) : (
                 <Button asChild variant="outline">
-                  <Link to="/review">Continue review</Link>
+                  <Link to={studyPath("review", selection)}>Continue review</Link>
                 </Button>
               )}
               <Button asChild>
@@ -90,9 +135,9 @@ export function QuizPage() {
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-3xl font-extrabold">Quiz</h1>
+        <h1 className="text-3xl font-extrabold">{studySelectionTitle(selection)} Quiz</h1>
         <p className="mt-1 text-sm font-semibold text-muted-foreground">
-          Paced practice - {QUESTION_TARGET_SECONDS}s target per question
+          {studySelectionDescription(selection, totalQuestions)} - {QUESTION_TARGET_SECONDS}s target per question
         </p>
       </div>
       <Progress value={(answeredCount / totalQuestions) * 100} />

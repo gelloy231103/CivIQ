@@ -75,7 +75,8 @@ export function NavLink({
   ...props
 }: NavLinkProps) {
   const { path } = useRouter();
-  const isActive = path === normalizePath(to);
+  const target = normalizePath(to);
+  const isActive = target === "/" ? path === target : path === target || path.startsWith(`${target}/`);
   const resolvedClassName = typeof className === "function" ? className({ isActive }) : className;
   return (
     <Link

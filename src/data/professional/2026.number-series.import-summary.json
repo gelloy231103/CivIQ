@@ -1,0 +1,14 @@
+{
+  "source": "Civil Service Reviewer",
+  "sourceFile": "Number Series - 98 Problems With Solutions.pdf",
+  "imported": 77,
+  "skipped": 21,
+  "byTopic": {
+    "Numerical Reasoning": 77
+  },
+  "skipReasons": {
+    "ambiguous choices": 1,
+    "missing answer marker": 1,
+    "not multiple choice": 19
+  }
+}

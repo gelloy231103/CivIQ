@@ -9,12 +9,14 @@ tmp/
 reviewers/
 
 # Logs and editor/system noise
+__pycache__/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 dev-server.log
 dev-server.err.log
+dev-server*.log
 .migration-secret.local
 .DS_Store
 Thumbs.db

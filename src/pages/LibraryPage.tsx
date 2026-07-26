@@ -1,16 +1,15 @@
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Brain, CheckCircle2, ClipboardList } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { availableYears, verifiedProfessionalQuestions } from "@/data/professional";
-import { buildProgressSnapshot } from "@/lib/progress-service";
 import { Link } from "@/lib/router";
+import { studyPath } from "@/lib/study-selection";
 import { useStudy } from "@/lib/study-state";
 
 export function LibraryPage() {
-  const { attempts, bookmarkedIds } = useStudy();
-  const progress = buildProgressSnapshot(attempts, bookmarkedIds);
+  const { attempts } = useStudy();
 
   return (
     <div className="space-y-5">
@@ -45,20 +44,38 @@ export function LibraryPage() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                <Progress value={yearCompletion || progress.completion} />
+                <Progress value={yearCompletion} />
                 <div className="flex flex-wrap gap-2">
-                  {yearTopics.map((topic) => (
-                    <Badge key={topic} variant="muted">
-                      {topic}
-                    </Badge>
-                  ))}
+                  {yearTopics.map((topic) => {
+                    const topicCount = yearQuestions.filter((question) => question.topic === topic).length;
+                    return (
+                      <Link
+                        key={topic}
+                        to={studyPath("review", { year, topic })}
+                        className="inline-flex min-h-11 items-center gap-1 rounded-md border bg-muted px-2.5 py-1 text-xs font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
+                        aria-label={`Review ${topic} questions from ${year}`}
+                      >
+                        {topic}
+                        <span className="text-muted-foreground/70">{topicCount}</span>
+                      </Link>
+                    );
+                  })}
                 </div>
-                <Button asChild className="w-full">
-                  <Link to="/review">
-                    Start {year}
-                    <ArrowRight aria-hidden="true" />
-                  </Link>
-                </Button>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  <Button asChild className="w-full">
+                    <Link to={studyPath("review", { year })}>
+                      <Brain aria-hidden="true" />
+                      Review {year}
+                      <ArrowRight aria-hidden="true" />
+                    </Link>
+                  </Button>
+                  <Button asChild className="w-full" variant="outline">
+                    <Link to={studyPath("quiz", { year })}>
+                      <ClipboardList aria-hidden="true" />
+                      Quiz {year}
+                    </Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           );
