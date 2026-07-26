@@ -27,3 +27,9 @@ VITE_SUPABASE_ANON_KEY=
 ```
 
 AI explanations are designed to run through a protected server function. Do not put provider keys in React client code.
+
+For Vercel deployment, add this environment variable in the Vercel project settings:
+
+```bash
+GEMINI_API_KEY=
+```
