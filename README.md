@@ -8,7 +8,7 @@ Login-required Civil Service Exam Professional reviewer for laptop and mobile we
 - Tailwind CSS with shadcn-compatible components
 - Supabase-ready auth, profile, follow, progress, and leaderboard boundaries
 - Protected AI explanation function stub
-- Generated Professional 2026 question set from the 2026-2027 reviewer source
+- Generated Civil Service reviewer question set from imported reviewer content
 
 ## Local Setup
 

@@ -32,7 +32,6 @@ export function ProfilePage() {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex flex-wrap gap-2">
-            <Badge variant="gold">Professional 2026-2027</Badge>
             <Badge variant="muted">{profile?.visibility ?? "friends"} visibility</Badge>
             {isPreview ? <Badge variant="outline">local preview</Badge> : null}
           </div>

@@ -1,5 +1,4 @@
 import { ArrowRight, BookMarked, Brain, Medal, Target } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -23,11 +22,8 @@ export function DashboardPage() {
       <section className="grid gap-4 lg:grid-cols-[1.5fr_1fr]">
         <Card>
           <CardHeader>
-            <Badge className="w-fit" variant="gold">
-              Current set: 2026-2027
-            </Badge>
             <CardTitle className="text-3xl leading-tight">Ready, {profile?.displayName ?? "reviewer"}?</CardTitle>
-            <CardDescription>Your Professional reviewer progress follows you across devices.</CardDescription>
+            <CardDescription>Your Civil Service reviewer progress follows you across devices.</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-3 sm:grid-cols-2">
             <Button asChild size="lg">

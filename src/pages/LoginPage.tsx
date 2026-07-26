@@ -82,7 +82,7 @@ export function LoginPage() {
             <CivIQLogo className="h-12 w-12 shrink-0" aria-hidden="true" />
             <div>
               <CardTitle className="text-2xl">CivIQ</CardTitle>
-              <CardDescription>Professional 2026-2027</CardDescription>
+              <CardDescription>Civil Service Reviewer</CardDescription>
             </div>
           </div>
         </CardHeader>

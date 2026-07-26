@@ -14,7 +14,7 @@ export function ReviewPage() {
       <div>
         <h1 className="text-3xl font-extrabold">Card Review</h1>
         <p className="mt-1 text-sm font-semibold text-muted-foreground">
-          {questions.length} Professional 2026 questions
+          {questions.length} questions in this set
         </p>
       </div>
       <ReviewCard

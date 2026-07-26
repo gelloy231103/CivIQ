@@ -35,7 +35,7 @@ export function LibraryPage() {
               <CardHeader>
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <CardTitle>{year} Professional Reviewer</CardTitle>
+                    <CardTitle>{year} Reviewer</CardTitle>
                     <CardDescription>{yearQuestions.length} answer-key verified questions</CardDescription>
                   </div>
                   <Badge variant="gold">

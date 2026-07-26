@@ -15,7 +15,7 @@ DEFAULT_SOURCE_NAME = "Civil Service Exam Reviewer for 2026.pdf"
 OUTPUT_JSON = ROOT / "src/data/professional/2026.generated.json"
 SUMMARY_JSON = ROOT / "src/data/professional/2026.import-summary.json"
 
-SOURCE_LABEL = "CSE 2026-2027 Professional Reviewer"
+SOURCE_LABEL = "Civil Service Reviewer"
 
 TOPIC_MAP = [
     ("Word Problems and Operations", "Numerical Reasoning"),
@@ -180,7 +180,7 @@ def finalize_candidate(
                 "question": question_text,
                 "choices": choices,
                 "answer": answer,
-                "explanation": f"The 2026-2027 reviewer marks choice {answer.upper()} as correct.",
+                "explanation": f"The answer key marks choice {answer.upper()} as correct.",
                 "feedback": {
                     "correct": "Correct. Your answer matches the marked answer key.",
                     "incorrect": "Review the marked answer and compare it with your selected choice.",

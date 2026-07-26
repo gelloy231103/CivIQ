@@ -48,7 +48,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <CivIQLogo className="h-11 w-11 shrink-0" aria-hidden="true" />
           <div>
             <p className="text-lg font-extrabold leading-none">CivIQ</p>
-            <p className="text-xs font-semibold text-muted-foreground">Professional 2026-2027</p>
+            <p className="text-xs font-semibold text-muted-foreground">Civil Service Reviewer</p>
           </div>
         </div>
         <nav className="mt-8 grid gap-1">
@@ -84,7 +84,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               <CivIQLogo className="h-10 w-10 shrink-0" aria-hidden="true" />
               <div>
                 <p className="font-extrabold leading-none">CivIQ</p>
-                <p className="text-xs font-semibold text-muted-foreground">Professional 2026-2027</p>
+                <p className="text-xs font-semibold text-muted-foreground">Civil Service Reviewer</p>
               </div>
             </div>
             <Avatar>
