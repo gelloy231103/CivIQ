@@ -35,10 +35,10 @@ export default async function handler(request: VercelRequest, response: VercelRe
     return;
   }
 
-  const apiKey = process.env.GEMINI_API_KEY;
   const supabaseUrl = process.env.SUPABASE_URL ?? process.env.VITE_SUPABASE_URL;
   const supabaseAnonKey = process.env.SUPABASE_ANON_KEY ?? process.env.VITE_SUPABASE_ANON_KEY;
   const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const apiKey = await resolveGeminiApiKey(supabaseUrl, supabaseServiceRoleKey, process.env.GEMINI_API_KEY);
   const dailyLimit = positiveNumber(process.env.AI_EXPLANATION_DAILY_LIMIT, 10);
   const body = request.body;
 
@@ -167,6 +167,43 @@ export async function explainWithGemini(apiKey: string, body: ExplainRequest) {
   };
 
   return data.candidates?.[0]?.content?.parts?.map((part) => part.text ?? "").join("").trim() ?? "";
+}
+
+async function resolveGeminiApiKey(
+  supabaseUrl: string | undefined,
+  supabaseServiceRoleKey: string | undefined,
+  fallbackApiKey: string | undefined
+) {
+  const vaultApiKey = await readVaultSecret(supabaseUrl, supabaseServiceRoleKey, "civiq_gemini_api_key");
+  return vaultApiKey || fallbackApiKey;
+}
+
+async function readVaultSecret(
+  supabaseUrl: string | undefined,
+  supabaseServiceRoleKey: string | undefined,
+  secretName: string
+) {
+  if (!supabaseUrl || !supabaseServiceRoleKey) return "";
+
+  try {
+    const response = await fetch(`${supabaseUrl}/rest/v1/rpc/civiq_vault_secret`, {
+      method: "POST",
+      headers: {
+        apikey: supabaseServiceRoleKey,
+        Authorization: `Bearer ${supabaseServiceRoleKey}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ secret_name: secretName })
+    });
+
+    if (!response.ok) return "";
+
+    const rows = (await response.json()) as Array<{ value?: unknown }>;
+    const value = rows[0]?.value;
+    return typeof value === "string" ? value.trim() : "";
+  } catch {
+    return "";
+  }
 }
 
 async function getSupabaseUserId(supabaseUrl: string, supabaseAnonKey: string, authorization: string) {

@@ -33,10 +33,9 @@ VITE_SUPABASE_ANON_KEY=
 
 AI explanations are designed to run through a protected server function. Do not put provider keys in React client code.
 
-For Vercel deployment, add this environment variable in the Vercel project settings:
+For Vercel deployment, keep only the Supabase server connection and limits in Vercel project settings:
 
 ```bash
-GEMINI_API_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
 AI_EXPLANATION_DAILY_LIMIT=10
 ADMIN_EMAILS=
@@ -44,6 +43,12 @@ ADMIN_EMAILS=
 
 `SUPABASE_SERVICE_ROLE_KEY` is server-only. It lets the API cache AI explanations and enforce per-user daily quota. Never expose it through `VITE_` variables.
 `ADMIN_EMAILS` is a comma-separated allowlist for `/admin/imports`.
+
+Production reads the Gemini API key from Supabase Vault with the secret name `civiq_gemini_api_key`. To sync the local `.env` value into Vault without committing it, provide either a temporary `SUPABASE_ACCESS_TOKEN` or a temporary `SUPABASE_SERVICE_ROLE_KEY` in the shell:
+
+```powershell
+.\scripts\sync_vault_secret.ps1 -EnvName GEMINI_API_KEY -SecretName civiq_gemini_api_key
+```
 
 ## Reviewer Import
 
