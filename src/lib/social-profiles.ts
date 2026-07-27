@@ -1,4 +1,4 @@
-import type { Profile } from "@/lib/question-model";
+import type { LeaderboardStat, Profile } from "@/lib/question-model";
 import { supabase } from "@/lib/supabase";
 
 type SocialProfileRow = {
@@ -8,6 +8,14 @@ type SocialProfileRow = {
   avatar_url: string | null;
   visibility: string;
   created_at: string;
+};
+
+type LeaderboardRow = SocialProfileRow & {
+  score: number;
+  accuracy: number;
+  completed_questions: number;
+  current_streak: number;
+  best_streak: number;
 };
 
 export async function listSocialProfiles(excludeUserId?: string, limit = 250): Promise<Profile[]> {
@@ -26,6 +34,25 @@ export async function listSocialProfiles(excludeUserId?: string, limit = 250): P
   if (error) return [];
 
   return (data as SocialProfileRow[] | null)?.map(profileFromSocialRow) ?? [];
+}
+
+export async function listLeaderboardRows(): Promise<Array<{ profile: Profile; stat: LeaderboardStat }>> {
+  if (!supabase) return [];
+
+  const { data, error } = await supabase.rpc("leaderboard_rows");
+  if (error) return [];
+
+  return (data as LeaderboardRow[] | null)?.map((row) => ({
+    profile: profileFromSocialRow(row),
+    stat: {
+      userId: String(row.id),
+      score: Number(row.score ?? 0),
+      accuracy: Number(row.accuracy ?? 0),
+      completedQuestions: Number(row.completed_questions ?? 0),
+      currentStreak: Number(row.current_streak ?? 0),
+      bestStreak: Number(row.best_streak ?? 0)
+    }
+  })) ?? [];
 }
 
 function profileFromSocialRow(row: SocialProfileRow): Profile {

@@ -7,7 +7,7 @@ Login-required Civil Service Exam Professional reviewer for laptop and mobile we
 - React + TypeScript + Vite
 - Tailwind CSS with shadcn-compatible components
 - Supabase-ready auth, profile, follow, progress, and leaderboard boundaries
-- AES-256 database-layer protection for private profile details
+- AES-256 database-layer protection for private CivIQ profile details
 - Protected Gemini AI explanations with cache, quota, and safe fallback behavior
 - Generated Civil Service reviewer question set from imported reviewer content
 - Visual Abstract Reasoning question assets with neutral answer labels
@@ -85,4 +85,8 @@ npm.cmd run build
 
 ## Privacy
 
-CivIQ keeps email/password handling inside Supabase Auth. The app database uses public usernames for social search and leaderboards. Private profile details, currently display name and avatar URL, are encrypted in Supabase with `pgcrypto` using `cipher-algo=aes256`; the key is generated and stored in Supabase Vault by the privacy migration.
+CivIQ keeps email/password handling inside Supabase Auth. Supabase Auth still stores and shows login identity data, such as email address and Google provider profile data, to project admins in the Supabase dashboard.
+
+The CivIQ app database uses public usernames for friend search. Private CivIQ profile details, currently display name and avatar URL, are encrypted in Supabase with `pgcrypto` using `cipher-algo=aes256`; the key is generated and stored in Supabase Vault by the privacy migration. App screens read decrypted names through controlled RPC functions instead of broad direct table reads.
+
+New email signups do not store CivIQ display name or username in Supabase Auth metadata. Existing app-specific Auth metadata keys are removed by the privacy lockdown migration where Supabase allows it.

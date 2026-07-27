@@ -8,7 +8,7 @@ import { verifiedProfessionalQuestions } from "@/data/professional";
 import { useAuth } from "@/lib/auth";
 import { calculateLeaderboardStat, sampleFriends, sampleFriendStats } from "@/lib/leaderboard-service";
 import type { LeaderboardStat, Profile } from "@/lib/question-model";
-import { listSocialProfiles } from "@/lib/social-profiles";
+import { listLeaderboardRows } from "@/lib/social-profiles";
 import { supabase } from "@/lib/supabase";
 import { useStudy } from "@/lib/study-state";
 import { formatPercent } from "@/lib/utils";
@@ -51,31 +51,10 @@ export function LeaderboardPage() {
 
     let cancelled = false;
     setLoading(true);
-    Promise.all([
-      listSocialProfiles(profile.id),
-      supabase
-        .from("leaderboard_stats")
-        .select("user_id, score, accuracy, completed_questions, current_streak, best_streak")
-    ])
-      .then(([profiles, statsResult]) => {
+    listLeaderboardRows()
+      .then((rows) => {
         if (cancelled) return;
-        const statsByUser = new Map(statsResult.data?.map((row) => [String(row.user_id), row]) ?? []);
-        setRemoteRows(
-          profiles.map((socialProfile) => {
-            const stat = statsByUser.get(socialProfile.id);
-            return {
-              profile: socialProfile,
-              stat: {
-                userId: socialProfile.id,
-                score: Number(stat?.score ?? 0),
-                accuracy: Number(stat?.accuracy ?? 0),
-                completedQuestions: Number(stat?.completed_questions ?? 0),
-                currentStreak: Number(stat?.current_streak ?? 0),
-                bestStreak: Number(stat?.best_streak ?? 0)
-              }
-            };
-          })
-        );
+        setRemoteRows(rows.filter((row) => row.profile.id !== profile.id));
       })
       .finally(() => {
         if (!cancelled) setLoading(false);

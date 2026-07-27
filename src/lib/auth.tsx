@@ -35,6 +35,14 @@ const previewProfile: Profile = {
   visibility: "friends",
   joinedAt: new Date().toISOString()
 };
+const pendingSignupProfileStorageKey = "civiq-pending-signup-profile-v1";
+
+type PendingSignupProfile = {
+  userId: string;
+  displayName: string;
+  username: string;
+  createdAt: string;
+};
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(isSupabaseConfigured);
@@ -99,18 +107,24 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signUp = useCallback(async (email: string, password: string, displayName: string, username: string) => {
     if (!supabase) return "Accounts are not connected yet.";
     const normalizedUsername = normalizeUsername(username);
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email: email.trim().toLowerCase(),
       password,
       options: {
-        emailRedirectTo: getRedirectUrl("/"),
-        data: {
-          display_name: displayName.trim(),
-          username: normalizedUsername
-        }
+        emailRedirectTo: getRedirectUrl("/")
       }
     });
-    return formatAuthError(error?.message);
+    const formattedError = formatAuthError(error?.message);
+    if (formattedError) return formattedError;
+    if (data.user?.id) {
+      storePendingSignupProfile({
+        userId: data.user.id,
+        displayName: displayName.trim(),
+        username: normalizedUsername,
+        createdAt: new Date().toISOString()
+      });
+    }
+    return null;
   }, []);
 
   const resetPasswordForEmail = useCallback(async (email: string) => {
@@ -229,27 +243,26 @@ export function useAuth() {
 async function ensureProfile(user: User): Promise<Profile> {
   if (!supabase) return profileFromUser(user);
 
-  const { data: existing } = await supabase
-    .from("profiles")
-    .select("id, username, display_name, avatar_url, visibility, created_at")
-    .eq("id", user.id)
-    .maybeSingle();
-  if (existing) return (await readPrivateProfile()) ?? profileFromRow(existing);
+  const existing = await readPrivateProfile();
+  if (existing) return existing;
 
-  const fallback = profileFromUser(user);
-  const { data: inserted, error } = await insertProfile(fallback);
+  const fallback = profileFromPendingSignup(user) ?? profileFromUser(user);
+  const { error } = await insertProfile(fallback);
 
   if (error) {
     const uniqueFallback = {
       ...fallback,
       username: `${fallback.username.slice(0, 17)}_${user.id.slice(0, 6)}`
     };
-    const { data: uniqueInserted } = await insertProfile(uniqueFallback);
-    if (uniqueInserted) return (await readPrivateProfile()) ?? profileFromRow(uniqueInserted);
+    const { error: uniqueError } = await insertProfile(uniqueFallback);
+    if (!uniqueError) {
+      clearPendingSignupProfile(user.id);
+      return (await readPrivateProfile()) ?? uniqueFallback;
+    }
   }
 
-  if (!inserted) return fallback;
-  return (await readPrivateProfile()) ?? profileFromRow(inserted);
+  if (!error) clearPendingSignupProfile(user.id);
+  return (await readPrivateProfile()) ?? fallback;
 }
 
 async function insertProfile(profile: Profile) {
@@ -262,23 +275,34 @@ async function insertProfile(profile: Profile) {
       display_name: profile.displayName,
       avatar_url: profile.avatarUrl ?? null,
       visibility: profile.visibility
-    })
-    .select("id, username, display_name, avatar_url, visibility, created_at")
-    .single();
+    });
 }
 
 function profileFromUser(user: User): Profile {
   const metadata = user.user_metadata ?? {};
   const fallbackName = `user_${user.id.slice(0, 8)}`;
-  const displayName = String(metadata.display_name || metadata.full_name || metadata.name || fallbackName);
+  const displayName = String(metadata.full_name || metadata.name || fallbackName);
   const avatarUrl = metadata.avatar_url || metadata.picture;
-  const username = normalizeUsername(String(metadata.username || metadata.preferred_username || fallbackName));
+  const username = normalizeUsername(String(metadata.preferred_username || fallbackName));
 
   return {
     id: user.id,
     username: username || `user_${user.id.slice(0, 8)}`,
     displayName,
     avatarUrl: avatarUrl ? String(avatarUrl) : undefined,
+    visibility: "friends",
+    joinedAt: new Date().toISOString()
+  };
+}
+
+function profileFromPendingSignup(user: User): Profile | null {
+  const pendingProfile = readPendingSignupProfile(user.id);
+  if (!pendingProfile) return null;
+
+  return {
+    id: user.id,
+    username: pendingProfile.username,
+    displayName: pendingProfile.displayName,
     visibility: "friends",
     joinedAt: new Date().toISOString()
   };
@@ -301,6 +325,40 @@ async function readPrivateProfile() {
   const { data, error } = await supabase.rpc("my_private_profile").maybeSingle();
   if (error || !data) return null;
   return profileFromRow(data as Record<string, unknown>);
+}
+
+function storePendingSignupProfile(profile: PendingSignupProfile) {
+  try {
+    localStorage.setItem(pendingSignupProfileStorageKey, JSON.stringify(profile));
+  } catch {
+    // Local profile handoff is best effort; users can still edit their profile after signup.
+  }
+}
+
+function readPendingSignupProfile(userId: string) {
+  try {
+    const raw = localStorage.getItem(pendingSignupProfileStorageKey);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as Partial<PendingSignupProfile>;
+    if (parsed.userId !== userId || !parsed.displayName || !parsed.username) return null;
+    return {
+      userId,
+      displayName: parsed.displayName,
+      username: normalizeUsername(parsed.username),
+      createdAt: String(parsed.createdAt ?? "")
+    };
+  } catch {
+    return null;
+  }
+}
+
+function clearPendingSignupProfile(userId: string) {
+  try {
+    const pendingProfile = readPendingSignupProfile(userId);
+    if (pendingProfile) localStorage.removeItem(pendingSignupProfileStorageKey);
+  } catch {
+    // Nothing to clear.
+  }
 }
 
 function normalizeUsername(value: string) {
