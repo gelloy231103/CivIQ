@@ -19,7 +19,7 @@ export function FriendsPage() {
   const results = isPreview ? filterProfiles(searchProfiles(""), query) : remoteProfiles;
   const emptyText = query.trim()
     ? "No profiles match that search yet."
-    : "Search by username or check back after more people create CivIQ accounts.";
+    : "Search by display name or check back after more people create CivIQ accounts.";
 
   useEffect(() => {
     if (isPreview || !supabase || !profile) return;
