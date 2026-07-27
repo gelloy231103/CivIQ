@@ -9,5 +9,6 @@ export const appRoutes = [
   "/progress",
   "/leaderboard",
   "/friends",
-  "/profile"
+  "/profile",
+  "/reset-password"
 ];

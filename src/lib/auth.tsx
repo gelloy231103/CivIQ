@@ -12,6 +12,8 @@ type AuthContextValue = {
   signIn: (email: string, password: string) => Promise<string | null>;
   signInWithGoogle: () => Promise<string | null>;
   signUp: (email: string, password: string, displayName: string, username: string) => Promise<string | null>;
+  resetPasswordForEmail: (email: string) => Promise<string | null>;
+  updatePassword: (password: string) => Promise<string | null>;
   updateProfile: (updates: ProfileUpdateInput) => Promise<string | null>;
   startPreview: () => void;
   signOut: () => Promise<void>;
@@ -87,7 +89,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: getRedirectUrl()
+        redirectTo: getRedirectUrl("/")
       }
     });
 
@@ -101,13 +103,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       email: email.trim().toLowerCase(),
       password,
       options: {
-        emailRedirectTo: getRedirectUrl(),
+        emailRedirectTo: getRedirectUrl("/"),
         data: {
           display_name: displayName.trim(),
           username: normalizedUsername
         }
       }
     });
+    return formatAuthError(error?.message);
+  }, []);
+
+  const resetPasswordForEmail = useCallback(async (email: string) => {
+    if (!supabase) return "Accounts are not connected yet.";
+    const { error } = await supabase.auth.resetPasswordForEmail(email.trim().toLowerCase(), {
+      redirectTo: getRedirectUrl("/reset-password")
+    });
+    return formatAuthError(error?.message);
+  }, []);
+
+  const updatePassword = useCallback(async (password: string) => {
+    if (!supabase) return "Accounts are not connected yet.";
+    const { error } = await supabase.auth.updateUser({ password });
     return formatAuthError(error?.message);
   }, []);
 
@@ -177,11 +193,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signIn,
       signInWithGoogle,
       signUp,
+      resetPasswordForEmail,
+      updatePassword,
       updateProfile,
       startPreview,
       signOut
     }),
-    [isPreview, loading, profile, session, signIn, signInWithGoogle, signOut, signUp, startPreview, updateProfile]
+    [
+      isPreview,
+      loading,
+      profile,
+      resetPasswordForEmail,
+      session,
+      signIn,
+      signInWithGoogle,
+      signOut,
+      signUp,
+      startPreview,
+      updatePassword,
+      updateProfile
+    ]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
@@ -281,8 +312,10 @@ function normalizeUsername(value: string) {
     .slice(0, 24);
 }
 
-function getRedirectUrl() {
-  return typeof window === "undefined" ? undefined : `${window.location.origin}/`;
+function getRedirectUrl(path: string) {
+  if (typeof window === "undefined") return undefined;
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${window.location.origin}${normalizedPath}`;
 }
 
 function formatAuthError(message?: string) {
@@ -300,6 +333,12 @@ function formatAuthError(message?: string) {
   }
   if (normalized.includes("password") && normalized.includes("at least")) {
     return "Use a password with at least 8 characters.";
+  }
+  if (normalized.includes("auth session missing") || normalized.includes("session_not_found")) {
+    return "Open the latest password reset link from your email, then try again.";
+  }
+  if (normalized.includes("same password") || normalized.includes("different from the old password")) {
+    return "Use a new password that is different from your current password.";
   }
   if (normalized.includes("unsupported provider") || normalized.includes("provider is not enabled")) {
     return "Google sign-in is not enabled yet.";

@@ -12,6 +12,7 @@ import {
   UsersRound
 } from "lucide-react";
 import { CivIQLogo } from "@/components/brand/CivIQLogo";
+import { ThemeCycleButton } from "@/components/layout/ThemeToggle";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -80,16 +81,19 @@ export function AppShell({ children }: { children: ReactNode }) {
         </nav>
         <div className="absolute bottom-5 left-4 right-4">
           <Separator className="mb-4" />
-          <div className="mb-3 flex items-center gap-3 rounded-md bg-muted p-3">
-            <Avatar>
-              <AvatarFallback>{initials || "CI"}</AvatarFallback>
-            </Avatar>
-            <div className="min-w-0">
-              <p className="truncate text-sm font-bold">{profile?.displayName}</p>
-              <p className="truncate text-xs text-muted-foreground">
-                @{profile?.username}
-                {isPreview ? " - preview" : ""}
-              </p>
+          <div className="mb-3 rounded-md bg-muted p-3">
+            <div className="flex items-center gap-3">
+              <Avatar>
+                <AvatarFallback>{initials || "CI"}</AvatarFallback>
+              </Avatar>
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-sm font-bold">{profile?.displayName}</p>
+                <p className="truncate text-xs text-muted-foreground">
+                  @{profile?.username}
+                  {isPreview ? " - preview" : ""}
+                </p>
+              </div>
+              <ThemeCycleButton />
             </div>
           </div>
           <Button variant="outline" className="w-full" onClick={signOut}>
@@ -109,9 +113,12 @@ export function AppShell({ children }: { children: ReactNode }) {
                 <p className="text-xs font-semibold text-muted-foreground">Civil Service Reviewer</p>
               </div>
             </div>
-            <Avatar>
-              <AvatarFallback>{initials || "CI"}</AvatarFallback>
-            </Avatar>
+            <div className="flex items-center gap-2">
+              <ThemeCycleButton />
+              <Avatar>
+                <AvatarFallback>{initials || "CI"}</AvatarFallback>
+              </Avatar>
+            </div>
           </div>
         </header>
 

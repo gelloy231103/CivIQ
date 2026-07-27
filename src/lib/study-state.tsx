@@ -10,9 +10,11 @@ type StudyState = {
   attempts: AttemptRecord[];
   bookmarkedIds: Set<string>;
   followedIds: Set<string>;
+  followerIds: Set<string>;
 };
 
 type StudyContextValue = StudyState & {
+  mutualFriendIds: Set<string>;
   answerQuestion: (questionId: string, selectedChoice: string, mode: AttemptMode) => AttemptRecord | null;
   toggleBookmark: (questionId: string) => void;
   toggleFollow: (profileId: string) => void;
@@ -25,7 +27,8 @@ const StudyContext = createContext<StudyContextValue | null>(null);
 const initialState: StudyState = {
   attempts: [],
   bookmarkedIds: new Set<string>(),
-  followedIds: new Set<string>()
+  followedIds: new Set<string>(),
+  followerIds: new Set<string>()
 };
 
 export function StudyProvider({ children }: { children: ReactNode }) {
@@ -37,7 +40,8 @@ export function StudyProvider({ children }: { children: ReactNode }) {
     const serialized = {
       attempts: state.attempts,
       bookmarkedIds: [...state.bookmarkedIds],
-      followedIds: [...state.followedIds]
+      followedIds: [...state.followedIds],
+      followerIds: [...state.followerIds]
     };
     localStorage.setItem(storageKey, JSON.stringify(serialized));
   }, [isPreview, profile, state]);
@@ -78,6 +82,7 @@ export function StudyProvider({ children }: { children: ReactNode }) {
   const value = useMemo<StudyContextValue>(
     () => ({
       ...state,
+      mutualFriendIds: intersectIds(state.followedIds, state.followerIds),
       answerQuestion(questionId, selectedChoice, mode) {
         const question = verifiedProfessionalQuestions.find((item) => item.id === questionId);
         if (!question) return null;
@@ -136,14 +141,15 @@ export function StudyProvider({ children }: { children: ReactNode }) {
 async function loadRemoteStudyState(userId: string): Promise<StudyState> {
   if (!supabase) return initialState;
 
-  const [attemptsResult, bookmarksResult, followsResult] = await Promise.all([
+  const [attemptsResult, bookmarksResult, followingResult, followersResult] = await Promise.all([
     supabase
       .from("attempts")
       .select("id, question_id, selected_choice, is_correct, mode, answered_at")
       .eq("user_id", userId)
       .order("answered_at", { ascending: true }),
     supabase.from("bookmarks").select("question_id").eq("user_id", userId),
-    supabase.from("follows").select("following_id").eq("follower_id", userId)
+    supabase.from("follows").select("following_id").eq("follower_id", userId),
+    supabase.from("follows").select("follower_id").eq("following_id", userId)
   ]);
 
   return {
@@ -157,7 +163,8 @@ async function loadRemoteStudyState(userId: string): Promise<StudyState> {
         answeredAt: String(row.answered_at)
       })) ?? [],
     bookmarkedIds: new Set(bookmarksResult.data?.map((row) => String(row.question_id)) ?? []),
-    followedIds: new Set(followsResult.data?.map((row) => String(row.following_id)) ?? [])
+    followedIds: new Set(followingResult.data?.map((row) => String(row.following_id)) ?? []),
+    followerIds: new Set(followersResult.data?.map((row) => String(row.follower_id)) ?? [])
   };
 }
 
@@ -197,6 +204,14 @@ function isUuid(value: string) {
   return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value);
 }
 
+function intersectIds(first: Set<string>, second: Set<string>) {
+  const next = new Set<string>();
+  first.forEach((id) => {
+    if (second.has(id)) next.add(id);
+  });
+  return next;
+}
+
 export function useStudy() {
   const context = useContext(StudyContext);
   if (!context) {
@@ -213,11 +228,13 @@ function readState(): StudyState {
       attempts?: AttemptRecord[];
       bookmarkedIds?: string[];
       followedIds?: string[];
+      followerIds?: string[];
     };
     return {
       attempts: parsed.attempts ?? [],
       bookmarkedIds: new Set(parsed.bookmarkedIds ?? []),
-      followedIds: new Set(parsed.followedIds ?? [...initialState.followedIds])
+      followedIds: new Set(parsed.followedIds ?? [...initialState.followedIds]),
+      followerIds: new Set(parsed.followerIds ?? [...initialState.followerIds])
     };
   } catch {
     return initialState;

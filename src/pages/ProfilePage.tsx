@@ -1,5 +1,6 @@
 import { LogOut, RotateCcw, Save } from "lucide-react";
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import { ThemeSegmentedControl } from "@/components/layout/ThemeToggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -16,7 +17,7 @@ import { formatPercent } from "@/lib/utils";
 
 export function ProfilePage() {
   const { profile, signOut, isPreview, updateProfile } = useAuth();
-  const { attempts, bookmarkedIds, followedIds, resetPreviewProgress } = useStudy();
+  const { attempts, bookmarkedIds, followedIds, mutualFriendIds, resetPreviewProgress } = useStudy();
   const [displayName, setDisplayName] = useState(profile?.displayName ?? "");
   const [username, setUsername] = useState(profile?.username ?? "");
   const [avatarUrl, setAvatarUrl] = useState(profile?.avatarUrl ?? "");
@@ -72,10 +73,11 @@ export function ProfilePage() {
             <Badge variant="muted">{profile?.visibility ?? "friends"} visibility</Badge>
             {isPreview ? <Badge variant="outline">local preview</Badge> : null}
           </div>
-          <div className="grid gap-3 sm:grid-cols-4">
+          <div className="grid gap-3 sm:grid-cols-5">
             <Metric label="Score" value={stat.score} />
             <Metric label="Accuracy" value={formatPercent(snapshot.accuracy)} />
             <Metric label="Following" value={followedIds.size} />
+            <Metric label="Friends" value={mutualFriendIds.size} />
             <Metric label="Bookmarks" value={bookmarkedIds.size} />
           </div>
           <div className="flex flex-col gap-2 sm:flex-row">
@@ -143,6 +145,9 @@ export function ProfilePage() {
                 <option value="friends">Friends only</option>
                 <option value="global">Global leaderboard</option>
               </select>
+            </Field>
+            <Field htmlFor="profile-theme" label="Theme">
+              <ThemeSegmentedControl id="profile-theme" />
             </Field>
             {error ? <p className="text-sm font-semibold text-destructive" role="alert">{error}</p> : null}
             {message ? <p className="text-sm font-semibold text-success" aria-live="polite">{message}</p> : null}

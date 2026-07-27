@@ -1,5 +1,5 @@
 import { FormEvent, type InputHTMLAttributes, type SVGProps, useState } from "react";
-import { AlertCircle, CheckCircle2, LockKeyhole, UserPlus } from "lucide-react";
+import { AlertCircle, ArrowLeft, CheckCircle2, LockKeyhole, Mail, UserPlus } from "lucide-react";
 import { CivIQLogo } from "@/components/brand/CivIQLogo";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,11 +9,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/lib/auth";
 
 export function LoginPage() {
-  const { signIn, signInWithGoogle, signUp } = useAuth();
+  const { resetPasswordForEmail, signIn, signInWithGoogle, signUp } = useAuth();
   const [activeTab, setActiveTab] = useState("signin");
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
-  const [loadingAction, setLoadingAction] = useState<"google" | "signin" | "signup" | null>(null);
+  const [loadingAction, setLoadingAction] = useState<"forgot" | "google" | "signin" | "signup" | null>(null);
   const loading = loadingAction !== null;
 
   async function submitSignIn(event: FormEvent<HTMLFormElement>) {
@@ -63,6 +64,28 @@ export function LoginPage() {
     setLoadingAction(null);
   }
 
+  async function submitForgotPassword(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setLoadingAction("forgot");
+    setError(null);
+    setNotice(null);
+    const form = new FormData(event.currentTarget);
+    const email = String(form.get("email") ?? "").trim().toLowerCase();
+    if (!email) {
+      setError("Enter the email address for your CivIQ account.");
+      setLoadingAction(null);
+      return;
+    }
+
+    const nextError = await resetPasswordForEmail(email);
+    if (nextError) {
+      setError(nextError);
+    } else {
+      setNotice("Password reset email sent. Open the link in your email to set a new password.");
+    }
+    setLoadingAction(null);
+  }
+
   async function startGoogleSignIn() {
     setLoadingAction("google");
     setError(null);
@@ -87,71 +110,114 @@ export function LoginPage() {
           </div>
         </CardHeader>
         <CardContent>
-          <Button className="mb-5 w-full" variant="outline" disabled={loading} onClick={startGoogleSignIn}>
-            <GoogleIcon aria-hidden="true" />
-            {loadingAction === "google" ? "Opening Google" : "Continue with Google"}
-          </Button>
-          <div className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            <span className="h-px flex-1 bg-border" />
-            <span>Email login</span>
-            <span className="h-px flex-1 bg-border" />
-          </div>
           {notice ? <StatusMessage tone="success">{notice}</StatusMessage> : null}
           {error ? <StatusMessage tone="error">{error}</StatusMessage> : null}
-          <Tabs
-            value={activeTab}
-            onValueChange={(value) => {
-              setActiveTab(value);
-              setError(null);
-              setNotice(null);
-            }}
-          >
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="signin">Sign in</TabsTrigger>
-              <TabsTrigger value="signup">Create account</TabsTrigger>
-            </TabsList>
-            <TabsContent value="signin">
-              <form className="space-y-4" onSubmit={submitSignIn}>
+          {showForgotPassword ? (
+            <div className="space-y-4">
+              <Button
+                type="button"
+                variant="ghost"
+                className="-ml-2"
+                onClick={() => {
+                  setShowForgotPassword(false);
+                  setError(null);
+                  setNotice(null);
+                }}
+              >
+                <ArrowLeft aria-hidden="true" />
+                Back to sign in
+              </Button>
+              <div className="rounded-md border bg-muted/40 p-3 text-sm font-semibold leading-6 text-muted-foreground">
+                Password reset is for email accounts. If you use Google sign-in, recover access through your Google account.
+              </div>
+              <form className="space-y-4" onSubmit={submitForgotPassword}>
                 <Field label="Email" name="email" type="email" autoComplete="email" />
-                <Field label="Password" name="password" type="password" autoComplete="current-password" />
                 <Button className="w-full" disabled={loading} type="submit">
-                  <LockKeyhole aria-hidden="true" />
-                  {loadingAction === "signin" ? "Signing in" : "Sign in"}
+                  <Mail aria-hidden="true" />
+                  {loadingAction === "forgot" ? "Sending email" : "Send reset email"}
                 </Button>
               </form>
-            </TabsContent>
-            <TabsContent value="signup">
-              <form className="space-y-4" onSubmit={submitSignUp}>
-                <Field label="Display name" name="displayName" autoComplete="name" />
-                <Field
-                  label="Username"
-                  name="username"
-                  autoComplete="username"
-                  description="Use 3-24 letters, numbers, or underscores."
-                />
-                <Field label="Email" name="email" type="email" autoComplete="email" />
-                <Field
-                  label="Password"
-                  name="password"
-                  type="password"
-                  autoComplete="new-password"
-                  minLength={8}
-                  description="Use at least 8 characters."
-                />
-                <Field
-                  label="Confirm password"
-                  name="confirmPassword"
-                  type="password"
-                  autoComplete="new-password"
-                  minLength={8}
-                />
-                <Button className="w-full" disabled={loading} type="submit">
-                  <UserPlus aria-hidden="true" />
-                  {loadingAction === "signup" ? "Creating account" : "Create account"}
-                </Button>
-              </form>
-            </TabsContent>
-          </Tabs>
+            </div>
+          ) : (
+            <>
+              <Button className="mb-5 w-full" variant="outline" disabled={loading} onClick={startGoogleSignIn}>
+                <GoogleIcon aria-hidden="true" />
+                {loadingAction === "google" ? "Opening Google" : "Continue with Google"}
+              </Button>
+              <div className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                <span className="h-px flex-1 bg-border" />
+                <span>Email login</span>
+                <span className="h-px flex-1 bg-border" />
+              </div>
+              <Tabs
+                value={activeTab}
+                onValueChange={(value) => {
+                  setActiveTab(value);
+                  setError(null);
+                  setNotice(null);
+                }}
+              >
+                <TabsList className="grid w-full grid-cols-2">
+                  <TabsTrigger value="signin">Sign in</TabsTrigger>
+                  <TabsTrigger value="signup">Create account</TabsTrigger>
+                </TabsList>
+                <TabsContent value="signin">
+                  <form className="space-y-4" onSubmit={submitSignIn}>
+                    <Field label="Email" name="email" type="email" autoComplete="email" />
+                    <div className="space-y-2">
+                      <Field label="Password" name="password" type="password" autoComplete="current-password" />
+                      <button
+                        type="button"
+                        className="text-sm font-bold text-primary hover:underline"
+                        onClick={() => {
+                          setShowForgotPassword(true);
+                          setError(null);
+                          setNotice(null);
+                        }}
+                      >
+                        Forgot password?
+                      </button>
+                    </div>
+                    <Button className="w-full" disabled={loading} type="submit">
+                      <LockKeyhole aria-hidden="true" />
+                      {loadingAction === "signin" ? "Signing in" : "Sign in"}
+                    </Button>
+                  </form>
+                </TabsContent>
+                <TabsContent value="signup">
+                  <form className="space-y-4" onSubmit={submitSignUp}>
+                    <Field label="Display name" name="displayName" autoComplete="name" />
+                    <Field
+                      label="Username"
+                      name="username"
+                      autoComplete="username"
+                      description="Use 3-24 letters, numbers, or underscores."
+                    />
+                    <Field label="Email" name="email" type="email" autoComplete="email" />
+                    <Field
+                      label="Password"
+                      name="password"
+                      type="password"
+                      autoComplete="new-password"
+                      minLength={8}
+                      description="Use at least 8 characters."
+                    />
+                    <Field
+                      label="Confirm password"
+                      name="confirmPassword"
+                      type="password"
+                      autoComplete="new-password"
+                      minLength={8}
+                    />
+                    <Button className="w-full" disabled={loading} type="submit">
+                      <UserPlus aria-hidden="true" />
+                      {loadingAction === "signup" ? "Creating account" : "Create account"}
+                    </Button>
+                  </form>
+                </TabsContent>
+              </Tabs>
+            </>
+          )}
         </CardContent>
       </Card>
     </main>

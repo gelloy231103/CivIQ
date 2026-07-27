@@ -18,6 +18,7 @@ const ProfilePage = lazy(() => import("@/pages/ProfilePage").then((module) => ({
 const ProgressPage = lazy(() => import("@/pages/ProgressPage").then((module) => ({ default: module.ProgressPage })));
 const QuizPage = lazy(() => import("@/pages/QuizPage").then((module) => ({ default: module.QuizPage })));
 const ReviewPage = lazy(() => import("@/pages/ReviewPage").then((module) => ({ default: module.ReviewPage })));
+const ResetPasswordPage = lazy(() => import("@/pages/ResetPasswordPage").then((module) => ({ default: module.ResetPasswordPage })));
 
 export default function App() {
   return (
@@ -36,6 +37,14 @@ function AppGate() {
       <main className="grid min-h-screen place-items-center px-4">
         <div className="rounded-md border bg-card px-5 py-4 text-sm font-bold shadow-soft">Loading CivIQ</div>
       </main>
+    );
+  }
+
+  if (path === "/reset-password") {
+    return (
+      <Suspense fallback={<PageLoading />}>
+        <ResetPasswordPage />
+      </Suspense>
     );
   }
 

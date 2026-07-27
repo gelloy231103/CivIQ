@@ -14,7 +14,7 @@ import { formatPercent } from "@/lib/utils";
 
 export function LeaderboardPage() {
   const { profile } = useAuth();
-  const { attempts, followedIds } = useStudy();
+  const { attempts, mutualFriendIds } = useStudy();
   const [remoteRows, setRemoteRows] = useState<Array<{ profile: Profile; stat: LeaderboardStat }>>([]);
   const [loading, setLoading] = useState(false);
   const me = profile ?? {
@@ -28,11 +28,11 @@ export function LeaderboardPage() {
   const meRow = { profile: me, stat: myStat };
   const friendRows =
     profile && supabase
-      ? [meRow, ...remoteRows.filter((row) => followedIds.has(row.profile.id))]
+      ? [meRow, ...remoteRows.filter((row) => mutualFriendIds.has(row.profile.id))]
       : [
           meRow,
           ...sampleFriends
-            .filter((friend) => followedIds.has(friend.id))
+            .filter((friend) => mutualFriendIds.has(friend.id))
             .map((friend) => ({ profile: friend, stat: sampleFriendStats[friend.id] }))
         ];
   const globalRows =
@@ -109,7 +109,7 @@ export function LeaderboardPage() {
         </TabsList>
         <TabsContent value="friends">
           <LeaderboardRows
-            emptyText="Follow friends from the Friends page to build this leaderboard."
+            emptyText="Mutual friends will appear here after you both follow each other."
             loading={loading}
             rows={friendRows}
           />
@@ -163,6 +163,7 @@ function LeaderboardRows({
               </Avatar>
               <div className="min-w-0">
                 <p className="truncate font-bold">{row.profile.displayName}</p>
+                <p className="truncate text-xs font-bold text-primary">@{row.profile.username}</p>
                 <p className="truncate text-sm text-muted-foreground">
                   {formatPercent(row.stat.accuracy)} | {row.stat.completedQuestions} done | streak {row.stat.currentStreak}
                 </p>
