@@ -8,6 +8,7 @@ import { verifiedProfessionalQuestions } from "@/data/professional";
 import { useAuth } from "@/lib/auth";
 import { calculateLeaderboardStat, sampleFriends, sampleFriendStats } from "@/lib/leaderboard-service";
 import type { LeaderboardStat, Profile } from "@/lib/question-model";
+import { listSocialProfiles } from "@/lib/social-profiles";
 import { supabase } from "@/lib/supabase";
 import { useStudy } from "@/lib/study-state";
 import { formatPercent } from "@/lib/utils";
@@ -51,32 +52,21 @@ export function LeaderboardPage() {
     let cancelled = false;
     setLoading(true);
     Promise.all([
-      supabase
-        .from("profiles")
-        .select("id, username, display_name, avatar_url, visibility, created_at")
-        .neq("id", profile.id)
-        .limit(100),
+      listSocialProfiles(profile.id),
       supabase
         .from("leaderboard_stats")
         .select("user_id, score, accuracy, completed_questions, current_streak, best_streak")
     ])
-      .then(([profilesResult, statsResult]) => {
+      .then(([profiles, statsResult]) => {
         if (cancelled) return;
         const statsByUser = new Map(statsResult.data?.map((row) => [String(row.user_id), row]) ?? []);
         setRemoteRows(
-          profilesResult.data?.map((row) => {
-            const stat = statsByUser.get(String(row.id));
+          profiles.map((socialProfile) => {
+            const stat = statsByUser.get(socialProfile.id);
             return {
-              profile: {
-                id: String(row.id),
-                username: String(row.username),
-                displayName: String(row.display_name),
-                avatarUrl: row.avatar_url ? String(row.avatar_url) : undefined,
-                visibility: row.visibility === "global" ? "global" : "friends",
-                joinedAt: String(row.created_at)
-              },
+              profile: socialProfile,
               stat: {
-                userId: String(row.id),
+                userId: socialProfile.id,
                 score: Number(stat?.score ?? 0),
                 accuracy: Number(stat?.accuracy ?? 0),
                 completedQuestions: Number(stat?.completed_questions ?? 0),
@@ -84,7 +74,7 @@ export function LeaderboardPage() {
                 bestStreak: Number(stat?.best_streak ?? 0)
               }
             };
-          }) ?? []
+          })
         );
       })
       .finally(() => {

@@ -5,58 +5,39 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/lib/auth";
 import type { Profile } from "@/lib/question-model";
+import { listSocialProfiles } from "@/lib/social-profiles";
 import { searchProfiles } from "@/lib/social-service";
-import { supabase } from "@/lib/supabase";
 import { useStudy } from "@/lib/study-state";
+
+type FriendFilter = "all" | "followers" | "following" | "friends";
 
 export function FriendsPage() {
   const [query, setQuery] = useState("");
+  const [activeFilter, setActiveFilter] = useState<FriendFilter>("all");
   const [remoteProfiles, setRemoteProfiles] = useState<Profile[]>([]);
   const { profile, isPreview } = useAuth();
   const { followedIds, followerIds, mutualFriendIds, toggleFollow } = useStudy();
-  const results = isPreview ? filterProfiles(searchProfiles(""), query) : remoteProfiles;
-  const emptyText = query.trim()
-    ? "No profiles match that search yet."
-    : "Search by display name or check back after more people create CivIQ accounts.";
+  const allProfiles = isPreview ? filterProfiles(searchProfiles(""), query) : filterProfiles(remoteProfiles, query);
+  const results = filterByFriendship(allProfiles, activeFilter, followedIds, followerIds, mutualFriendIds)
+    .sort((first, second) => compareByFriendship(first, second, followedIds, followerIds, mutualFriendIds));
+  const emptyText = getEmptyText(activeFilter, query);
+  const filterCounts = getFilterCounts(allProfiles, followedIds, followerIds, mutualFriendIds);
 
   useEffect(() => {
-    if (isPreview || !supabase || !profile) return;
+    if (isPreview || !profile) return;
 
     let cancelled = false;
-    const client = supabase;
-    const timeout = window.setTimeout(async () => {
-      const normalized = query.trim().replace(/[,()]/g, " ");
-      let request = client
-        .from("profiles")
-        .select("id, username, display_name, avatar_url, visibility, created_at")
-        .neq("id", profile.id)
-        .order("created_at", { ascending: false })
-        .limit(20);
-      if (normalized) {
-        request = request.or(`display_name.ilike.%${normalized}%,username.ilike.%${normalized}%`);
-      }
-      const { data } = await request;
-      if (!cancelled) {
-        setRemoteProfiles(
-          data?.map((row) => ({
-            id: String(row.id),
-            username: String(row.username),
-            displayName: String(row.display_name),
-            avatarUrl: row.avatar_url ? String(row.avatar_url) : undefined,
-            visibility: row.visibility === "global" ? "global" : "friends",
-            joinedAt: String(row.created_at)
-          })) ?? []
-        );
-      }
-    }, 250);
+    listSocialProfiles(profile.id).then((profiles) => {
+      if (!cancelled) setRemoteProfiles(profiles);
+    });
 
     return () => {
       cancelled = true;
-      window.clearTimeout(timeout);
     };
-  }, [isPreview, profile, query]);
+  }, [isPreview, profile]);
 
   return (
     <div className="space-y-5">
@@ -67,6 +48,14 @@ export function FriendsPage() {
         </p>
       </div>
       <Input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search by display name" />
+      <Tabs value={activeFilter} onValueChange={(value) => setActiveFilter(value as FriendFilter)}>
+        <TabsList className="grid w-full grid-cols-2 gap-1 sm:inline-flex sm:w-auto sm:grid-cols-none">
+          <TabsTrigger value="all">All {filterCounts.all}</TabsTrigger>
+          <TabsTrigger value="followers">Followers {filterCounts.followers}</TabsTrigger>
+          <TabsTrigger value="following">Following {filterCounts.following}</TabsTrigger>
+          <TabsTrigger value="friends">Friends {filterCounts.friends}</TabsTrigger>
+        </TabsList>
+      </Tabs>
       <div className="grid gap-3">
         {!isPreview && results.length === 0 ? (
           <Card>
@@ -119,6 +108,67 @@ function filterProfiles(profiles: Profile[], query: string) {
       profile.displayName.toLowerCase().includes(normalized) ||
       profile.username.toLowerCase().includes(normalized)
   );
+}
+
+function filterByFriendship(
+  profiles: Profile[],
+  activeFilter: FriendFilter,
+  followedIds: Set<string>,
+  followerIds: Set<string>,
+  mutualFriendIds: Set<string>
+) {
+  if (activeFilter === "followers") return profiles.filter((profile) => followerIds.has(profile.id));
+  if (activeFilter === "following") return profiles.filter((profile) => followedIds.has(profile.id));
+  if (activeFilter === "friends") return profiles.filter((profile) => mutualFriendIds.has(profile.id));
+  return profiles;
+}
+
+function getFilterCounts(
+  profiles: Profile[],
+  followedIds: Set<string>,
+  followerIds: Set<string>,
+  mutualFriendIds: Set<string>
+) {
+  return {
+    all: profiles.length,
+    followers: profiles.filter((profile) => followerIds.has(profile.id)).length,
+    following: profiles.filter((profile) => followedIds.has(profile.id)).length,
+    friends: profiles.filter((profile) => mutualFriendIds.has(profile.id)).length
+  };
+}
+
+function compareByFriendship(
+  first: Profile,
+  second: Profile,
+  followedIds: Set<string>,
+  followerIds: Set<string>,
+  mutualFriendIds: Set<string>
+) {
+  return (
+    getFriendshipPriority(first.id, followedIds, followerIds, mutualFriendIds) -
+      getFriendshipPriority(second.id, followedIds, followerIds, mutualFriendIds) ||
+    first.displayName.localeCompare(second.displayName)
+  );
+}
+
+function getFriendshipPriority(
+  profileId: string,
+  followedIds: Set<string>,
+  followerIds: Set<string>,
+  mutualFriendIds: Set<string>
+) {
+  if (followerIds.has(profileId) && !followedIds.has(profileId)) return 0;
+  if (mutualFriendIds.has(profileId)) return 1;
+  if (followedIds.has(profileId)) return 2;
+  return 3;
+}
+
+function getEmptyText(activeFilter: FriendFilter, query: string) {
+  if (query.trim()) return "No profiles match that search yet.";
+  if (activeFilter === "followers") return "People who follow you will appear here.";
+  if (activeFilter === "following") return "People you follow will appear here.";
+  if (activeFilter === "friends") return "Mutual friends will appear here after you both follow each other.";
+  return "Search by display name or check back after more people create CivIQ accounts.";
 }
 
 function getFriendshipState(

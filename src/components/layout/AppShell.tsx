@@ -19,7 +19,14 @@ import { Separator } from "@/components/ui/separator";
 import { useAuth } from "@/lib/auth";
 import { listAdminImports } from "@/lib/admin-import-client";
 import { NavLink } from "@/lib/router";
+import { useStudy } from "@/lib/study-state";
 import { cn } from "@/lib/utils";
+
+type NavItem = {
+  to: string;
+  label: string;
+  icon: typeof Home;
+};
 
 const primaryNav = [
   { to: "/", label: "Dashboard", icon: Home },
@@ -37,7 +44,9 @@ const secondaryNav = [
 
 export function AppShell({ children }: { children: ReactNode }) {
   const { profile, signOut, isPreview, session } = useAuth();
+  const { followedIds, followerIds } = useStudy();
   const [adminVisible, setAdminVisible] = useState(false);
+  const followBackCount = [...followerIds].filter((id) => !followedIds.has(id)).length;
   const visibleSecondaryNav = adminVisible
     ? [...secondaryNav, { to: "/admin/imports", label: "Admin", icon: ShieldCheck }]
     : secondaryNav;
@@ -76,7 +85,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         </div>
         <nav className="mt-8 grid gap-1">
           {[...primaryNav, ...visibleSecondaryNav].map((item) => (
-            <SidebarLink key={item.to} item={item} />
+            <SidebarLink key={item.to} item={item} badgeCount={item.to === "/friends" ? followBackCount : 0} />
           ))}
         </nav>
         <div className="absolute bottom-5 left-4 right-4">
@@ -136,7 +145,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   );
 }
 
-function SidebarLink({ item }: { item: (typeof primaryNav)[number] }) {
+function SidebarLink({ item, badgeCount = 0 }: { item: NavItem; badgeCount?: number }) {
   const Icon = item.icon;
   return (
     <NavLink
@@ -149,12 +158,17 @@ function SidebarLink({ item }: { item: (typeof primaryNav)[number] }) {
       }
     >
       <Icon className="h-4 w-4" aria-hidden="true" />
-      {item.label}
+      <span className="min-w-0 flex-1 truncate">{item.label}</span>
+      {badgeCount > 0 ? (
+        <span className="min-w-5 rounded-full bg-accent px-1.5 py-0.5 text-center text-[11px] font-extrabold leading-none text-accent-foreground">
+          {badgeCount}
+        </span>
+      ) : null}
     </NavLink>
   );
 }
 
-function BottomLink({ item }: { item: (typeof primaryNav)[number] }) {
+function BottomLink({ item }: { item: NavItem }) {
   const Icon = item.icon;
   return (
     <NavLink
