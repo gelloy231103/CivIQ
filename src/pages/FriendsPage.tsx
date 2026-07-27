@@ -16,7 +16,7 @@ export function FriendsPage() {
   const [remoteProfiles, setRemoteProfiles] = useState<Profile[]>([]);
   const { profile, isPreview } = useAuth();
   const { followedIds, followerIds, mutualFriendIds, toggleFollow } = useStudy();
-  const results = isPreview ? searchProfiles(query) : remoteProfiles;
+  const results = isPreview ? filterProfiles(searchProfiles(""), query) : remoteProfiles;
   const emptyText = query.trim()
     ? "No profiles match that search yet."
     : "Search by username or check back after more people create CivIQ accounts.";
@@ -27,7 +27,7 @@ export function FriendsPage() {
     let cancelled = false;
     const client = supabase;
     const timeout = window.setTimeout(async () => {
-      const normalized = query.trim();
+      const normalized = query.trim().replace(/[,()]/g, " ");
       let request = client
         .from("profiles")
         .select("id, username, display_name, avatar_url, visibility, created_at")
@@ -35,7 +35,7 @@ export function FriendsPage() {
         .order("created_at", { ascending: false })
         .limit(20);
       if (normalized) {
-        request = request.ilike("username", `%${normalized}%`);
+        request = request.or(`display_name.ilike.%${normalized}%,username.ilike.%${normalized}%`);
       }
       const { data } = await request;
       if (!cancelled) {
@@ -63,10 +63,10 @@ export function FriendsPage() {
       <div>
         <h1 className="text-3xl font-extrabold">Friends</h1>
         <p className="mt-1 text-sm font-semibold text-muted-foreground">
-          Find classmates by username. You only compete after you both follow each other.
+          Find classmates by display name. You only compete after you both follow each other.
         </p>
       </div>
-      <Input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search by username" />
+      <Input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search by display name" />
       <div className="grid gap-3">
         {!isPreview && results.length === 0 ? (
           <Card>
@@ -92,7 +92,6 @@ export function FriendsPage() {
                       <p className="truncate font-bold">{profile.displayName}</p>
                       <Badge variant={state.mutual ? "secondary" : state.followsYou ? "gold" : "muted"}>{state.badge}</Badge>
                     </div>
-                    <p className="mt-1 truncate text-sm font-bold text-primary">@{profile.username}</p>
                   </div>
                 </div>
                 <Button
@@ -109,6 +108,16 @@ export function FriendsPage() {
         })}
       </div>
     </div>
+  );
+}
+
+function filterProfiles(profiles: Profile[], query: string) {
+  const normalized = query.trim().toLowerCase();
+  if (!normalized) return profiles;
+  return profiles.filter(
+    (profile) =>
+      profile.displayName.toLowerCase().includes(normalized) ||
+      profile.username.toLowerCase().includes(normalized)
   );
 }
 
